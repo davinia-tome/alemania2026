@@ -1,0 +1,1372 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baviera & Selva Negra 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+      rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      .chart-container {
+        position: relative;
+        width: 100%;
+        height: 260px;
+      }
+
+      .hero-bg {
+        background:
+          linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
+          url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=80');
+        background-size: cover;
+        background-position: center;
+      }
+
+      .section-card {
+        background-color: white;
+        border-radius: 2.5rem;
+        border: 1px solid #cbd5e1;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      }
+
+      .activity-item:hover {
+        background-color: #f8fafc;
+        cursor: pointer;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
+
+      .expense-input {
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        font-size: 0.875rem;
+        width: 100%;
+      }
+
+      .expense-input:focus {
+        outline: 2px solid #f59e0b;
+        background: white;
+      }
+
+      .cat-card {
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+
+      .cat-card:hover {
+        transform: translateY(-2px);
+        border-color: #f59e0b;
+      }
+
+      .cat-card.active {
+        border-color: #f59e0b;
+        background-color: #fffbeb;
+        ring: 2px solid #f59e0b;
+      }
+
+      /* Estilos para las flechas de navegación */
+      .nav-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: white;
+        color: #0f172a;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        z-index: 110;
+        transition: all 0.2s;
+        cursor: pointer;
+        border: none;
+      }
+
+      .nav-arrow:hover {
+        background: #f8fafc;
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .nav-arrow.prev {
+        left: -20px;
+      }
+
+      .nav-arrow.next {
+        right: -20px;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-100 text-slate-900 scroll-smooth">
+    <!-- Header Principal -->
+    <header class="hero-bg text-white py-24 px-6 text-center shadow-2xl">
+      <div class="max-w-4xl mx-auto">
+        <h1
+          class="text-4xl md:text-6xl font-extrabold mb-2 tracking-tighter uppercase italic text-white">
+          Baviera & Selva Negra
+        </h1>
+        <p class="text-xl md:text-2xl font-light text-slate-300 italic">
+          7 Julio al 23 de Julio de 2026
+        </p>
+      </div>
+    </header>
+
+    <nav class="bg-white/95 backdrop-blur-md border-b border-slate-300 p-4 sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🥨</span>
+          <span class="font-extrabold text-slate-900 tracking-tighter uppercase"
+            >ALEMANIA 2026</span
+          >
+        </div>
+        <div class="flex gap-6 text-[10px] font-black uppercase tracking-widest">
+          <a href="#gastos" class="text-slate-600 hover:text-amber-600 transition-colors">Gastos</a>
+          <a href="#itinerario" class="text-slate-600 hover:text-amber-600 transition-colors"
+            >Itinerario</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Dashboards de Gastos -->
+    <section id="gastos" class="py-12 max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <div class="section-card p-8">
+          <h3
+            class="text-lg font-black text-slate-800 uppercase italic mb-6 flex items-center gap-2">
+            <span>💸</span> Añadir Gasto
+          </h3>
+          <form id="expense-form" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-2"
+                  >Concepto</label
+                >
+                <input
+                  type="text"
+                  id="exp-desc"
+                  placeholder="Ej: Cena Munich"
+                  class="expense-input"
+                  required />
+              </div>
+              <div>
+                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-2"
+                  >Categoría</label
+                >
+                <select id="exp-cat" class="expense-input">
+                  <option value="Transporte">Transporte</option>
+                  <option value="Alojamiento">Alojamiento</option>
+                  <option value="Comida">Comida</option>
+                  <option value="Ocio">Ocio</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-2"
+                >Importe (€)</label
+              >
+              <div class="flex gap-4">
+                <input
+                  type="number"
+                  id="exp-amount"
+                  step="0.01"
+                  placeholder="0.00"
+                  class="expense-input"
+                  required />
+                <button
+                  type="submit"
+                  class="bg-amber-500 hover:bg-amber-600 text-white font-black uppercase tracking-widest text-[10px] px-8 rounded-xl transition-all shadow-lg shadow-amber-200">
+                  Añadir
+                </button>
+              </div>
+            </div>
+          </form>
+          <div class="mt-8 border-t border-slate-100 pt-6">
+            <div class="flex justify-between items-center mb-4">
+              <h4
+                id="list-title"
+                class="text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                Movimientos
+              </h4>
+              <button
+                onclick="filterByCategory(null)"
+                id="btn-reset-filter"
+                class="hidden text-[9px] font-black text-amber-600 uppercase underline">
+                Ver todos
+              </button>
+            </div>
+            <div
+              id="expense-list"
+              class="space-y-2 max-h-32 overflow-y-auto custom-scrollbar pr-2"></div>
+          </div>
+        </div>
+
+        <div class="section-card p-8 text-center flex flex-col justify-between">
+          <h3 class="text-lg font-black text-slate-800 uppercase italic mb-4">
+            Estado Presupuesto
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="chart-container"><canvas id="budgetChart"></canvas></div>
+            <div class="space-y-4 text-center">
+              <div class="p-6 bg-slate-900 rounded-3xl text-white shadow-xl">
+                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">
+                  Total
+                </p>
+                <p id="totalGasto" class="text-4xl font-black text-amber-400">0.00€</p>
+              </div>
+              <div id="categories-summary" class="grid grid-cols-2 gap-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. Estructura HTML: Sitúa esto justo antes del <section id="itinerario"> -->
+    <section id="estadisticas-ruta" class="py-8 max-w-6xl mx-auto px-6">
+      <div id="ruta" class="section-card p-8">
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+          <h3 class="text-lg font-black text-slate-800 uppercase italic flex items-center gap-2">
+            <span>🚗</span> Análisis de Kilometraje por Etapa
+          </h3>
+          <div class="bg-amber-50 px-4 py-2 rounded-2xl border border-amber-100">
+            <p class="text-[10px] font-bold text-amber-800 uppercase tracking-widest">
+              Total Ruta: <span id="totalKm" class="text-lg font-black ml-1">0</span> km
+            </p>
+          </div>
+        </div>
+
+        <!-- Contenedor del Gráfico -->
+        <div class="h-[300px] w-full">
+          <canvas id="kmChart"></canvas>
+        </div>
+
+        <p
+          class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-6 text-center italic">
+          * Los datos se actualizan automáticamente según el campo 'km' de cada día en el
+          itinerario.
+        </p>
+      </div>
+    </section>
+
+    <!-- Itinerario -->
+    <section id="itinerario" class="py-16 bg-slate-200/50 border-y border-slate-300">
+      <div class="max-w-5xl mx-auto px-6 text-center mb-12">
+        <h2
+          class="text-4xl font-black text-slate-900 uppercase tracking-tighter italic underline decoration-amber-400 decoration-4 underline-offset-8">
+          Itinerario Detallado
+        </h2>
+      </div>
+      <div id="itinerary-list" class="max-w-4xl mx-auto space-y-6 px-6"></div>
+    </section>
+
+    <!-- Modal de Actividad -->
+    <div
+      id="activity-modal"
+      class="fixed inset-0 bg-slate-900/90 backdrop-blur-md z-[100] hidden flex items-center justify-center p-4">
+      <div
+        class="bg-white rounded-[2.5rem] w-full max-w-2xl shadow-2xl overflow-hidden border border-slate-300 flex flex-col max-h-[90vh]">
+        <!-- Flechas de navegación -->
+        <button
+          onclick="navigateActivity(-1)"
+          id="prev-btn"
+          class="nav-arrow absolute left-4 top-1/2 -translate-y-1/2 z-50 w-12 h-12 flex items-center justify-center rounded-full bg-white/90 shadow-xl text-slate-800 hover:scale-110 transition-transform">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <button
+          onclick="navigateActivity(1)"
+          id="next-btn"
+          class="nav-arrow absolute right-4 top-1/2 -translate-y-1/2 z-50 w-12 h-12 flex items-center justify-center rounded-full bg-white/90 shadow-xl text-slate-800 hover:scale-110 transition-transform">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+
+        <div class="relative h-64 md:h-72 shrink-0">
+          <img id="modal-img" src="" class="w-full h-full object-cover" alt="Lugar" />
+          <button
+            onclick="closeModal()"
+            class="absolute top-4 right-4 bg-black/60 hover:bg-black text-white p-2 rounded-full transition">
+            ✕
+          </button>
+        </div>
+        <div class="p-8 overflow-y-auto custom-scrollbar">
+          <p
+            id="modal-category"
+            class="text-[10px] font-black text-amber-600 uppercase tracking-widest mb-1"></p>
+          <h4
+            id="modal-title"
+            class="text-3xl font-black text-slate-900 italic uppercase mb-4"></h4>
+
+          <div
+            id="modal-schedule"
+            class="mb-6 bg-slate-50 p-4 rounded-2xl border border-slate-100 hidden">
+            <p class="text-[9px] font-black text-slate-400 uppercase mb-2">Cronograma Estimado</p>
+            <div
+              id="modal-schedule-content"
+              class="text-[11px] font-bold text-slate-700 space-y-1"></div>
+          </div>
+
+          <div id="modal-desc" class="text-sm text-slate-700 leading-relaxed italic mb-6"></div>
+
+          <div id="modal-history-section" class="mb-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xl">📖</span>
+              <h5 class="text-[11px] font-black text-slate-900 uppercase tracking-widest">
+                Información y Logística
+              </h5>
+            </div>
+            <div
+              id="modal-history-text"
+              class="text-[13px] text-slate-600 leading-relaxed pl-8 border-l-2 border-slate-200 italic text-justify"></div>
+          </div>
+
+          <!-- SECCIÓN GASTRONÓMICA -->
+          <div
+            id="modal-gastronomy"
+            class="hidden bg-orange-50 p-6 rounded-3xl border border-orange-100 mb-6">
+            <p class="text-[9px] font-black text-orange-600 uppercase mb-2">
+              🥨 Recomendación Gastronómica
+            </p>
+            <div id="modal-resto-content" class="text-xs text-slate-700 font-bold italic"></div>
+          </div>
+
+          <div
+            id="modal-shopping"
+            class="hidden bg-blue-50 p-6 rounded-3xl border border-blue-100 mb-8">
+            <p class="text-[9px] font-black text-blue-600 uppercase tracking-widest mb-2">
+              🛒 Lista de la Compra
+            </p>
+            <ul
+              id="modal-shopping-list"
+              class="text-[11px] text-slate-700 font-medium list-disc pl-4 space-y-1"></ul>
+          </div>
+
+          <!-- Botones de Acción -->
+          <div class="flex flex-col gap-3">
+            <!-- Botón Web Oficial -->
+            <a
+              id="modal-web"
+              target="_blank"
+              class="hidden block w-full text-center py-3 border-2 border-slate-900 text-slate-900 rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-slate-50 transition-all"
+              >🌐 Web Oficial</a
+            >
+
+            <!-- Botón de Mapa -->
+            <a
+              id="modal-map"
+              target="_blank"
+              class="hidden block w-full text-center py-4 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-black transition-all"
+              >Ver ruta</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let rawExpenses = [
+        { cat: 'Transporte', desc: 'Vuelos Lufthansa (MUC)', amount: 760.16 },
+        { cat: 'Alojamiento', desc: 'Alpen Hotel Martin', amount: 156.59 },
+        { cat: 'Alojamiento', desc: 'Casa Tandri am Rebenweg', amount: 130.0 },
+        { cat: 'Alojamiento', desc: 'Condo en Schönwald', amount: 425.0 },
+        { cat: 'Alojamiento', desc: 'M&J FeWo', amount: 773.74 },
+        { cat: 'Alojamiento', desc: 'a&o Stuttgart', amount: 60.54 },
+        { cat: 'Alojamiento', desc: 'Hotel Merian Rothenburg', amount: 180.9 },
+        { cat: 'Alojamiento', desc: 'Ferienwohnung Lautner', amount: 270.0 },
+        { cat: 'Alojamiento', desc: 'Brera Apartments', amount: 388.8 },
+      ];
+
+      const itineraryData = [
+        {
+          day: '07 Jul',
+          weekday: 'Mar',
+          ruta: 'Múnich → Oberammergau → Neuschwanstein → Füssen → Nesselwang',
+          km: 180,
+          hotel: {
+            name: 'Alpen Hotel Martin',
+            booking: 'https://www.booking.com/hotel/de/alpenhotel-martin.es.html',
+            maps: 'https://www.google.com/maps/search/?api=1&query=An+der+Riese+18,+87484+Nesselwang',
+            checkin: '14:00 - 23:30',
+            checkout: '10:30',
+            price: '156,59€',
+            nights: '1',
+            breakfast: true,
+          },
+          mapLink:
+            'https://www.google.com/maps/dir/Munich+Airport/Oberammergau/Neuschwanstein+Castle/Füssen/Nesselwang',
+          actividades: [
+            {
+              name: 'Oberammergau',
+              category: 'Fachadas Pintadas',
+              img: 'https://www.eva-darling.com/wp-content/uploads/2023/09/oberammergau-germany-4.jpg',
+              desc: 'Pueblo famoso por sus frescos (Lüftlmalerei) y tallas de madera.',
+              schedule: '12:15 - Llegada y comida típica.\n14:15 - Salida hacia el castillo.',
+              history:
+                'El pueblo de Oberammergau se conoce principalmente por tres cosas: Una obra de teatro sobre la Pasión de fama mundial, una tradición centenaria de tallado en madera y por sus edificios pintados con frescos y bellas ilustraciones sobre cuentos infantiles..\nGracias a su precioso entorno boscoso y al abundante suministro de madera, muchos de los habitantes de  Oberammergau se dedicaron en tiempos pasados a la talla de madera.\nLos privilegios comerciales especiales de Oberammergau permitieron a los talladores de madera de este pueblo alemán, comercializar sus productos en toda Europa desde la Edad Media.\nPero a principios de la década de 1630, la peste negra asoló gran parte de la región. Cuenta la leyenda que en 1633 los habitantes de Oberammergau prometieron representar regularmente una «pasión religiosa» si el pueblo sobrevivía a la peste.\nSegún la tradición, desde que se hizo esa promesa nadie más se enfermó y en 1634 tuvo lugar, según lo prometido, la primera representación de la Pasión de Cristo de Oberammergau, una tradición religiosa que persiste hasta el día de hoy.\nMuchos de los edificios de Oberammergau están decorados con frescos ornamentados que reciben el nombre de Lüftlmalerei.\nEstos murales son típicos de muchos edificios de los pueblos de la Alta Baviera (Oberbayern), bellamente adornados con este estilo tradicional de pintura\nMientras paseas por las calles de Oberammergau, notarás que las escenas religiosas se mezclan con motivos florales y las escenas de cuentos de hadas, tan populares como Caperucita Roja o Hansel y Gretel\nEn los terrenos de la iglesia principal de Oberammergau hay un curioso cementerio por el que merece la pena dar un corto paseo para conocer sus elaboradas lápidas, talladas en madera.\nCada diez años Oberammergau representa una obra sobre la Pasión. Esta representación religiosa cuenta la vida de Jesús y atrae a cientos de miles de visitantes de todo el mundo.\nAlgunos son peregrinos religiosos, mientras que otros, simplemente son turistas curiosos interesados en la historia de la obra, que lleva representándose en Oberammergau desde desde 1634.\nLo que hace que la obra de la Pasión de Oberammergau sea especial, es que casi la mitad de la población del pueblo participa en ella: Unas 5.000 personas aproximadamente.\nCuriosamente, en el año previo a la obra, los actores masculinos deben dejarse crecer el cabello y la barba para darle más realismo a la representación.\nEl Pilatushaus también exhibe arte y artesanía local en el interior. En la planta baja del edificio puedes observar a los artesanos regionales mientras practican sus artesanías. Estas exposiciones se denominan Lebenden Werkstatt (o talleres vivientes).\nLas exhibiciones van variando, pero las más comunes son de carpinteros, artesanos de madera, vidrio y alfareros\nLa entrada a la exposición Lebenden Werkstatt es gratuita y se puede entrar a través del jardín situado en el lado sur de Pilatushaus.',
+              mapLink: 'https://www.google.com/maps/search/?api=1&query=Pilatushaus+Oberammergau',
+              recommendation: 'Hotel Restaurant Alte Post.',
+              restoLink:
+                'https://www.google.com/maps/place/HOTEL+ALTE+POST/@47.5987666,11.0620201,818m/data=!3m1!1e3!4m24!1m12!3m11!1s0x479dab0ec63121eb:0x64d5b36e083c0ce6!2sHOTEL+ALTE+POST!5m2!4m1!1i2!8m2!3d47.598763!4d11.064595!9m1!1b1!16s%2Fg%2F1v8y3041!3m10!1s0x479dab0ec63121eb:0x64d5b36e083c0ce6!5m2!4m1!1i2!8m2!3d47.598763!4d11.064595!9m1!1b1!16s%2Fg%2F1v8y3041?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+            },
+            {
+              name: 'Castillo de Neuschwanstein',
+              category: 'Icono Real',
+              img: 'https://mexicorutamagica.mx/wp-content/uploads/2021/12/castillo_de_neuschwanstein_01-pixabay_com.jpg',
+              desc: 'El castillo que inspiró a Disney.',
+              schedule: '15:15 - Parking en Hohenschwangau.\n16:00 - Marienbrücke (Mirador).',
+              history:
+                'Imprescindible reserva previa para entrar. El puente Marienbrücke ofrece la mejor vista gratuita del exterior. La mejor opción para subir al castillo de Neuschwanstein y la que te recomiendo: Tomar el bus hasta el Puente de María.\nEstos autobuses salen desde el parking P4 de Schwangau y operan todo el año (ojo: si ha nevado o helado, no pueden subir) y te tocará subir andando.\nEl billete se compra al conductor directamente en el bus. Desde el Puente de María hay que caminar 15 minutos hasta el castillo, para visitar su interior.\nCómo subir al Castillo de Neuschwanstein por libre desde Hohenschwangau \nDesde Hohenschwangau se puede subir caminando al castillo en 30-40 minutos o utilizar un minibús que cuesta: Precios de subida 2,50 € / precio de bajada: 1,50 € / Precio de subida y bajada: 3€ .\Se coge junto a las taquillas, se paga directamente en el bus y te deja a unos 5 minutos caminando del castillo. Tiene mucha frecuencia y sale según se llena.\nRecomendamos bajar caminando, para disfrutar del paseo y las preciosas vistas.\nvisita-Castillo-de- Neuschwanstein-desde-Munich\nLos autobuses no pueden llegar directamente hasta el castillo por problemas de espacio, pero llegan por la carretera Bleckenaustraße hasta el mirador Jugend (Marienbrücke, en el puente de María) en la parte superior del castillo.\nDesde allí es cuesta abajo y tendrás unos 10-15 minutos andando hasta la entrada del castillo. También se puede acceder a Marienbrücke desde el camino que se bifurca a la derecha desde las taquillas, justo al principio de la subida hacia Neuschwanstein.',
+              mapLink: 'https://www.google.com/maps/search/?api=1&query=Neuschwanstein+Castle',
+              officialWeb: 'https://www.hohenschwangau.de/',
+            },
+            {
+              name: 'Füssen',
+              category: 'Naturaleza e Historia',
+              img: 'https://www.fuessen.de/fileadmin/_processed_/9/c/csm_F%C3%BCssen_Altstadt_von_oben_75_1__F%C3%BCssen_Tourismus_und_Marketing_Struck_Mathias_bd468c1e0e.jpg',
+              desc: 'Casco antiguo medieval.',
+              history: 'Visita el casco antiguo de Füssen',
+              mapLink:
+                'https://www.google.com/maps/d/u/0/edit?mid=1qZQeemXhRpPk62KIZ-oary3HYt_ItVM&usp=sharing',
+            },
+            {
+              name: 'Nesselwang',
+              category: 'Alojamiento',
+              img: 'https://www.nesselwang.de/files/content/foto/das-erlebnisreich/sommer/Nesselwang_Sommer_2024_Sandra-Geiger_Head_1920x720_02.jpg',
+              desc: '',
+              history: 'Visita el casco antiguo de Füssen',
+              mapLink: 'https://www.google.com/maps/search/?api=1&query=Lechfall+Füssen',
+            },
+          ],
+        },
+        {
+          day: '08 Jul',
+          weekday: 'Mie',
+          ruta: 'Nesselwang → Lindau → Meersburg → Bermatingen',
+          km: 115,
+          hotel: {
+            name: 'Casa Tandri am Rebenweg',
+            booking: 'https://www.booking.com/hotel/de/casa-tandri-am-rebenweg.es.html',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Markgrafenstraße+26,+88697+Bermatingen',
+            checkin: '15:00',
+            checkout: '11:00',
+            price: '130,00€',
+            nights: '1',
+            breakfast: false,
+          },
+          mapLink: 'https://www.google.com/maps/dir/Nesselwang/Lindau/Meersburg/Bermatingen',
+          actividades: [
+            {
+              name: 'Lindau (Isla)',
+              category: 'Puerto de Baviera',
+              img: 'https://aliveandroaming.com/wp-content/uploads/2025/04/Lindau-Puerto-Alemania-lago-constanza-leon-faro.jpg',
+              desc: 'Isla histórica en el Lago de Constanza.',
+              schedule: '11:20 - Llegada a P1.\n12:30 - Comida.\n14:00 - Paseo.',
+              history: 'El León de Baviera y el Faro flanquean la entrada del puerto.',
+              mapLink:
+                'https://www.google.com/maps/d/u/0/edit?mid=1Hpus4SoXS50T0Ch2bVWcWwIJ3oqd-Qw&usp=sharing',
+            },
+            {
+              name: 'Meersburg',
+              category: 'Ciudad de Viñedos',
+              img: 'https://www.bodensee.eu/pois/bcp-ausflugsziele/alte-burg-meersburg/image-thumb__10641__lightbox/burg-meersburg3.jpeg',
+              desc: 'Perla medieval del lago.',
+              history: 'El Altes Schloss es un viaje al pasado medieval. Vistas increíbles.',
+              mapLink:'https://www.google.com/maps/d/u/0/edit?mid=15vm_CF4GIwHssT17LwT0WU8cjMJlKaU&usp=sharing',
+            },
+          ],
+        },
+        {
+          day: '09 Jul',
+          weekday: 'Jue',
+          ruta: 'Bermatingen → Titisee → Todtnau → Schönwald',
+          km: 145,
+          hotel: {
+            name: 'Condo en Schönwald (Ludwig-Uhland-Str. 17)',
+            booking: '#',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Ludwig-Uhland-Straße+17,+78141+Schönwald',
+            checkin: '00:00 (Alguien espera)',
+            checkout: '11:00',
+            price: '425,00€ (3 n.)',
+            nights: '3',
+            breakfast: false,
+          },
+          mapLink: 'https://www.google.com/maps/dir/Bermatingen/Titisee/Todtnau/Schönwald',
+          actividades: [
+            {
+              name: 'Lago Titisee',
+              category: 'Icono Selva Negra',
+              img: 'https://lamaletadecarla.com/wp-content/uploads/2021/09/Alemania5.jpg',
+              desc: 'El lago más famoso de la Selva Negra.',
+              schedule: '12:15 - Llegada.\n13:00 - COMIDA.\n14:30 - Paseo por el lago.',
+              history: 'Paseo por la orilla y tiendas de artesanía (relojes de cuco). Aparcar en P1.',
+              mapLink: 'https://www.google.com/maps/search/?api=1&query=Titisee+Lake',
+              recommendation: 'Restaurante con vistas al lago (Trucha o Selva Negra).',
+              restoLink: '#',
+            },
+            {
+              name: 'Tobogán Hasenhorn',
+              category: 'Aventura',
+              img: 'https://media-cdn.tripadvisor.com/media/photo-s/04/06/44/15/hasenhorn-coaster-todtnau.jpg',
+              desc: 'Tobogán alpino de 2.9 km de descenso.',
+              schedule: '15:00 - Subida en telesilla.\n16:00 - Descenso.',
+              history: 'Diversión asegurada para toda la familia. Uno de los más largos de Alemania.',
+              mapLink: 'https://www.google.com/maps/search/?api=1&query=Hasenhorn+Coaster+Todtnau',
+            },
+            {
+              name: 'Cascadas de Todtnau',
+              category: 'Naturaleza',
+              img: 'https://mein.toubiz.de/api/v1/media/5f1d2da8-e3ea-4ce8-a938-e81dabc8408c/view?fm=image/jpeg&w=420',
+              desc: 'Una de las caídas de agua más altas de Alemania (97m).',
+              history: 'Caminata corta y fácil de unos 15 minutos desde el parking.',
+              mapLink: 'https://www.google.com/maps/search/?api=1&query=Todtnau+Waterfall',
+            },
+            {
+              name: 'Schönwald',
+              category: 'Pueblo',
+              img: 'https://vcdn.bergfex.at/images/resized/4f/a50b69ac13f89b4f_ef7403d4c63276dc@2x.jpg',
+              desc: '-',
+              history: '-',
+              mapLink: 'https://www.google.com/maps/search/?api=1&query=Ludwig-Uhland-Straße+17,+78141+Schönwald',
+            },
+          ],
+        },
+        {
+          day: '10 Jul',
+          weekday: 'Vie',
+          ruta: 'Schönwald → Triberg → Cascadas → Schönwald',
+          km: 25,
+          hotel: {
+            name: 'Condo en Schönwald (Ludwig-Uhland-Str. 17)',
+            booking: '#',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Ludwig-Uhland-Straße+17,+78141+Schönwald',
+            checkin: 'En estancia',
+            checkout: '11:00',
+            price: 'Incluido',
+            nights: '3',
+            breakfast: false,
+          },
+          mapLink:
+            'https://www.google.com/maps/dir/Schönwald/Triberg/Reloj+de+Cuco+Gigante/Schönwald',
+          actividades: [
+            {
+              name: 'Triberg',
+              category: 'Pueblo',
+              img: 'https://imanesdeviaje.com/wp-content/uploads/2022/08/que-ver-en-triberg-relojes-cuco.jpg',
+              desc: '-',
+              schedule: '-',
+              history: '-',
+              mapLink: 'https://www.google.com/maps/search/?api=1&query=Triberg+Waterfalls',
+              recommendation: '-',
+              restoLink: '#',
+            },
+            {
+              name: 'Cascadas de Triberg',
+              category: 'Naturaleza',
+              img: 'https://thumbs.dreamstime.com/b/idyllic-triberg-waterfalls-scenery-showing-black-forest-southern-germany-summer-time-36528775.jpg',
+              desc: 'Las cascadas más famosas de la Selva Negra, iluminadas de noche.',
+              schedule: '10:00 - Entrada por Triberg.\n11:30 - Ruta de las ardillas.',
+              history: 'Famosas por sus siete niveles. No olvides comprar cacahuetes a la entrada para alimentar a las ardillas.',
+              mapLink: 'https://www.google.com/maps/search/?api=1&query=Triberg+Waterfalls',
+              recommendation: 'Café Schäfer (La receta original de la tarta Selva Negra).',
+              restoLink: '#',
+            },
+            {
+              name: 'Reloj de Cuco Gigante',
+              category: 'Cultura',
+              img: 'https://www.shutterstock.com/editorial/image-editorial/O4T7IdwfN7j2gay1MjE2Ng==/exterior-view-world-biggest-cuckoo-clock-eble-550nw-9142101n.jpg',
+              desc: 'El reloj de cuco más grande del mundo (se puede entrar dentro).',
+              history: 'Ubicado en Eble Uhren-Park. Es impresionante ver la maquinaria desde el interior.',
+              mapLink: 'https://www.google.com/maps/search/?api=1&query=Eble+Uhren+Park+Giant+Cuckoo+Clock',
+            },
+            {
+              name: 'Compra Logística',
+              category: 'Logística',
+              img: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80',
+              desc: 'Abastecimiento en Schönwald.',
+              history: 'Supermercado EDEKA en el pueblo. Ideal para reponer víveres para las cenas en el apartamento.',
+              mapLink: 'https://www.google.com/maps/search/?api=1&query=EDEKA+Schönwald',
+              shopping: ['Cenas para el apartamento', 'Agua y snacks', 'Embutidos locales'],
+            },
+          ],
+        },
+        {
+          day: '11 Jul',
+          weekday: 'Sab',
+          ruta: 'Schönwald → Höllental → Friburgo → Schönwald',
+          km: 112,
+          hotel: {
+            name: 'Condo en Schönwald (Ludwig-Uhland-Str. 17)',
+            booking: '#',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Ludwig-Uhland-Straße+17,+78141+Schönwald',
+            checkin: 'En estancia',
+            checkout: '11:00',
+            price: 'Incluido',
+            nights: '3',
+            breakfast: false,
+          },
+          mapLink: 'https://www.google.com/maps/place/79183+Waldkirch,+Alemania/@48.0874312,7.8639297,51870m/am=t/data=!3m1!1e3!4m44!1m37!4m36!1m6!1m2!1s0x4790e8201e0f066d:0x41f6bb7a5df8940!2sSch%C3%B6nwald,+Alemania!2m2!1d8.2048757!2d48.10411!1m6!1m2!1s0x4790e4aea628b679:0x41f6bb7a5df5850!2sBuchenbach,+79256,+Alemania!2m2!1d8.0094386!2d47.9609204!1m6!1m2!1s0x47911b26560bd665:0x41f6bb7a5df57b0!2sFriburgo+de+Brisgovia,+Alemania!2m2!1d7.8421043!2d47.9990077!1m6!1m2!1s0x47911fd97d6c5ba1:0x41f6bb7a5df5c50!2sWaldkirch,+79183,+Alemania!2m2!1d7.9586468!2d48.0914682!1m6!1m2!1s0x4790e8201e0f066d:0x41f6bb7a5df8940!2sSch%C3%B6nwald,+Alemania!2m2!1d8.2048757!2d48.10411!3e0!3m5!1s0x47911fd97d6c5ba1:0x41f6bb7a5df5c50!8m2!3d48.0914682!4d7.9586468!16zL20vMDY1ZjNj?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+          actividades: [
+            {
+              name: 'Höllental (Valle del Infierno)',
+              category: 'Naturaleza',
+              img: 'https://www.schwarzwaldportal.com/wp-content/uploads/2021/11/image_editor_output_image1424577051-1636021146774-scaled.jpg',
+              desc: 'Impresionante carretera que serpentea entre paredes de roca. Hito: El Hirschsprung (Salto del Ciervo), con su estatua de bronce.',
+              schedule: '10:00 - Salida hacia Höllental\n10:45 - Parada en Hirschsprung',
+            },
+            {
+              name: 'Casco Antiguo de Friburgo',
+              category: 'Ciudad',
+              img: 'https://fotografiandoviajes.com/wp-content/uploads/2026/07/Blaue-Brucke-puente-azul-Friburgo-Brisgovia-Alemania-1.jpeg',
+              desc: 'Exploración de la Catedral (Münster) y los famosos canales Bächle. ¡Cuidado con pisarlos!',
+              schedule: '11:30 - Llegada a Friburgo\n12:00 - Visita Catedral y Bächle\n15:30 - Ascenso al Schlossberg',
+              recommendation: "Comida en Münsterplatz: Probar la 'Lange Rote' (salchicha típica).",
+              restoLink: '#',
+              mapLink: 'https://www.google.com/maps/d/u/0/edit?mid=1KPb6iiDnvK_ZqUaz7rwyLKQZJKVD3u0&usp=sharing',
+            },
+          ],
+        },
+        {
+          day: '12 Jul',
+          weekday: 'Dom',
+          ruta: 'Schönwald → Schiltach → Lahr → Rust',
+          km: 111,
+          mapLink: 'https://www.google.com/maps/dir/Sch%C3%B6nwald,+Alemania/Schiltach,+77761,+Alemania/Lahr,+77933,+Alemania/Rust,+77977,+Alemania/@48.2299621,7.8697043,51726m/data=!3m1!1e3!4m26!4m25!1m5!1m1!1s0x4790e8201e0f066d:0x41f6bb7a5df8940!2m2!1d8.2048757!2d48.10411!1m5!1m1!1s0x4790c8b90195f43b:0x41f6bb7a5df87d0!2m2!1d8.3468916!2d48.2917596!1m5!1m1!1s0x47912e514f5d66f7:0x41f6bb7a5df8510!2m2!1d7.8781487!2d48.33915!1m5!1m1!1s0x47913981b6a81ead:0x41f6bb7a5df8620!2m2!1d7.7256191!2d48.2672137!3e0?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+          hotel: {
+            name: 'M&J FeWo',
+            booking: 'https://www.booking.com/hotel/de/m-j-fewo.es.html?label=v3.cmlflth9qxma30826qfbi96lk&sid=a420b96e1b7c0031d5fc2378d53d20f3;label=postbooking_directions',
+            maps: 'https://www.google.com/maps/place/Rathausstra%C3%9Fe+63,+77966+Kappel-Grafenhausen,+Alemania/@48.2905174,7.7454452,17z/data=!3m1!4b1!4m6!3m5!1s0x47913a0c5428c893:0x32d6007ce7d8c18f!8m2!3d48.2905139!4d7.7503161!16s%2Fg%2F11sv88m5b8?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+            checkin: '17:00 - 22:00',
+            checkout: '07:00-10:00',
+            price: '773,74€',
+            nights: '4',
+            breakfast: false,
+          },
+          actividades: [
+            {
+              name: 'Schiltach',
+              category: 'Pueblo Medieval',
+              img: 'https://fotografiandoviajes.com/wp-content/uploads/2025/07/Schiltach-recorrido-visitar-selva-negra.jpeg',
+              desc: 'Paseo por la Marktplatz y fotos en el río.',
+              schedule: '11:00 - Llegada a Schiltach\n13:30 - Comida en ruta',
+              mapLink: 'https://www.google.com/maps/d/u/0/edit?mid=1Of1vegtCfJFRhkuagBz4dbi8tfC-vfo&usp=sharing',
+            }
+          ],
+        },
+        {
+          day: '13 Jul',
+          weekday: 'Lun',
+          ruta: 'Zona Rust: Rulantica',
+          km: 7,
+          mapLink: 'https://www.google.com/maps/place/Kappel-Grafenhausen,+Alemania/@48.2798214,7.724269,3230m/data=!3m1!1e3!4m30!1m23!4m22!1m6!1m2!1s0x47913a05b91145ad:0xe91df39b78a201de!2sKappel-Grafenhausen,+Alemania!2m2!1d7.7416927!2d48.2924014!1m6!1m2!1s0x47913981b6a81ead:0x41f6bb7a5df8620!2sRust,+77977,+Alemania!2m2!1d7.7256191!2d48.2672137!1m6!1m2!1s0x47913a05b91145ad:0xe91df39b78a201de!2sKappel-Grafenhausen,+Alemania!2m2!1d7.7416927!2d48.2924014!3e0!3m5!1s0x47913a05b91145ad:0xe91df39b78a201de!8m2!3d48.2924014!4d7.7416927!16s%2Fm%2F02p_tr2?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+          hotel: {
+            name: 'M&J FeWo',
+            booking: 'https://www.booking.com/hotel/de/m-j-fewo.es.html?label=v3.cmlflth9qxma30826qfbi96lk&sid=a420b96e1b7c0031d5fc2378d53d20f3;label=postbooking_directions',
+            maps: 'https://www.google.com/maps/place/Rathausstra%C3%9Fe+63,+77966+Kappel-Grafenhausen,+Alemania/@48.2905174,7.7454452,17z/data=!3m1!4b1!4m6!3m5!1s0x47913a0c5428c893:0x32d6007ce7d8c18f!8m2!3d48.2905139!4d7.7503161!16s%2Fg%2F11sv88m5b8?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+            checkin: '17:00 - 22:00',
+            checkout: '07:00-10:00',
+            price: '773,74€',
+            nights: '4',
+            breakfast: false,
+          },
+          actividades: [
+            {
+              name: 'Rulantica',
+              category: 'Agua',
+              img: 'https://www.europapark.de/sites/default/files/styles/wide/public/media_image/2019-12/rulantica_skip_strand_europa-park.jpg?itok=UUCKimtH',
+              desc: 'Día completo de diversión acuática.',
+              schedule: '09:30 - Entrada\n13:00 - Picnic con Brezeln\n18:30 - Salida',
+              recommendation: 'Flammkuchen típico alsaciano.',
+              restoLink: '#'
+            },
+          ],
+        },
+        {
+          day: '14 Jul',
+          weekday: 'Mar',
+          ruta: 'Europa-Park',
+          km: 7,
+          mapLink:  'https://www.google.com/maps/place/Kappel-Grafenhausen,+Alemania/@48.2798214,7.724269,3230m/data=!3m1!1e3!4m30!1m23!4m22!1m6!1m2!1s0x47913a05b91145ad:0xe91df39b78a201de!2sKappel-Grafenhausen,+Alemania!2m2!1d7.7416927!2d48.2924014!1m6!1m2!1s0x47913981b6a81ead:0x41f6bb7a5df8620!2sRust,+77977,+Alemania!2m2!1d7.7256191!2d48.2672137!1m6!1m2!1s0x47913a05b91145ad:0xe91df39b78a201de!2sKappel-Grafenhausen,+Alemania!2m2!1d7.7416927!2d48.2924014!3e0!3m5!1s0x47913a05b91145ad:0xe91df39b78a201de!8m2!3d48.2924014!4d7.7416927!16s%2Fm%2F02p_tr2?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+          hotel: {
+            name: 'M&J FeWo',
+            booking: 'https://www.booking.com/hotel/de/m-j-fewo.es.html?label=v3.cmlflth9qxma30826qfbi96lk&sid=a420b96e1b7c0031d5fc2378d53d20f3;label=postbooking_directions',
+            maps: 'https://www.google.com/maps/place/Rathausstra%C3%9Fe+63,+77966+Kappel-Grafenhausen,+Alemania/@48.2905174,7.7454452,17z/data=!3m1!4b1!4m6!3m5!1s0x47913a0c5428c893:0x32d6007ce7d8c18f!8m2!3d48.2905139!4d7.7503161!16s%2Fg%2F11sv88m5b8?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+            checkin: '17:00 - 22:00',
+            checkout: '07:00-10:00',
+            price: '773,74€',
+            nights: '4',
+            breakfast: false,
+          },
+          actividades: [
+            {
+              name: 'Europa-Park Día 1',
+              category: 'Adrenalina',
+              img: 'https://www.europapark.de/sites/default/files/styles/kachel_1x2/public/media_image/2023-07/EP23_Island_Wodan_Sommer_25.jpg?h=06f6671c&itok=8OAovkuT',
+              desc: 'Áreas de Francia y Suiza.',
+              schedule: '09:00 - Apertura\n18:00 - Cierre',
+            },
+          ],
+        },
+        {
+          day: '15 Jul',
+          weekday: 'Mie',
+          ruta: 'Europa-Park',
+          km: 7,
+          mapLink: 'https://www.google.com/maps/place/Kappel-Grafenhausen,+Alemania/@48.2798214,7.724269,3230m/data=!3m1!1e3!4m30!1m23!4m22!1m6!1m2!1s0x47913a05b91145ad:0xe91df39b78a201de!2sKappel-Grafenhausen,+Alemania!2m2!1d7.7416927!2d48.2924014!1m6!1m2!1s0x47913981b6a81ead:0x41f6bb7a5df8620!2sRust,+77977,+Alemania!2m2!1d7.7256191!2d48.2672137!1m6!1m2!1s0x47913a05b91145ad:0xe91df39b78a201de!2sKappel-Grafenhausen,+Alemania!2m2!1d7.7416927!2d48.2924014!3e0!3m5!1s0x47913a05b91145ad:0xe91df39b78a201de!8m2!3d48.2924014!4d7.7416927!16s%2Fm%2F02p_tr2?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+          hotel: {
+            name: 'M&J FeWo',
+            booking: 'https://www.booking.com/hotel/de/m-j-fewo.es.html?label=v3.cmlflth9qxma30826qfbi96lk&sid=a420b96e1b7c0031d5fc2378d53d20f3;label=postbooking_directions',
+            maps: 'https://www.google.com/maps/place/Rathausstra%C3%9Fe+63,+77966+Kappel-Grafenhausen,+Alemania/@48.2905174,7.7454452,17z/data=!3m1!4b1!4m6!3m5!1s0x47913a0c5428c893:0x32d6007ce7d8c18f!8m2!3d48.2905139!4d7.7503161!16s%2Fg%2F11sv88m5b8?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+            checkin: '17:00 - 22:00',
+            checkout: '07:00-10:00',
+            price: '773,74€',
+            nights: '4',
+            breakfast: false,
+          },
+          actividades: [
+            {
+              name: 'Europa-Park Día 2',
+              category: 'Parque Atracciones',
+              img: 'https://www.europapark.de/sites/default/files/styles/kachel_1x2/public/media_image/2025-10/voltron_sommer_europa-park_0.jpg?h=2118e219&itok=li3xg1K7',
+              desc: 'Área de Croacia (Voltron) y resto del parque.',
+            },
+          ],
+        },
+        {
+          day: '16 Jul',
+          weekday: 'Jue',
+          ruta: 'Rust → Gengenbach → Sattelei → Stuttgart',
+          km: 216,
+          mapLink:
+            'https://www.google.com/maps/dir/Kappel-Grafenhausen,+Alemania/Gengenbach,+77723,+Alemania/Sasbachwalden,+Alemania/Wanderh%C3%BCtte+Sattelei+-+Hotel+Bareiss+GmbH,+72270+Baiersbronn,+Alemania/a%26o+Hostel+Stuttgart+City,+Rosensteinstra%C3%9Fe+14%2F16,+70191+Stuttgart,+Alemania/@48.5204229,8.3477817,1399m/data=!3m1!1e3!4m32!4m31!1m5!1m1!1s0x47913a05b91145ad:0xe91df39b78a201de!2m2!1d7.7416927!2d48.2924014!1m5!1m1!1s0x47912a8cb07868d9:0x41f6bb7a5df5cf0!2m2!1d8.0095997!2d48.4098117!1m5!1m1!1s0x479727b4f93ad119:0x41f6bb7a5df8640!2m2!1d8.1278781!2d48.6177086!1m5!1m1!1s0x4797310d934ecdb3:0x87220026e035ffbc!2m2!1d8.3526023!2d48.5205351!1m5!1m1!1s0x4799c4d4f8bc2769:0x2de8825491b50e9a!2m2!1d9.1914938!2d48.7933066!3e0?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+          hotel: {
+            name: 'a&o Stuttgart',
+            booking:
+              'https://www.booking.com/hotel/de/a-amp-o-stuttgart-city.es.html?label=v3.cmlflth9qxma30826qfbi96lk&sid=a420b96e1b7c0031d5fc2378d53d20f3;label=postbooking_directions',
+            maps: 'https://www.google.com/maps/place/A%26O+HOSTELS,+Rosensteinstra%C3%9Fe+14-16,+70191+Stuttgart,+Alemania/@48.7930735,9.1884151,17z/data=!3m1!4b1!4m6!3m5!1s0x4799c4d4f8bc2769:0x4d0693f61d645b43!8m2!3d48.79307!4d9.19099!16s%2Fg%2F11rsbmb85d?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+            checkin: '15:00',
+            checkout: '10:00',
+            price: '60,54€',
+            nights: '1',
+            breakfast: false,
+          },
+          actividades: [
+            {
+              name: 'Gengenbach',
+              category: 'Pueblo',
+              img: 'https://content-viajes.nationalgeographic.com.es/medio/2023/08/14/gengenbach_d02e411e_230814110846_1200x801.jpg',
+              desc: 'El pueblo de chocolate.',
+              schedule: '10:30 - Parada rápida',
+              mapLink:'https://www.google.com/maps/d/u/0/edit?mid=1QjTYVQnTWu-wMo8c7Mb0_6trlFnCAwk&usp=sharing',
+            },
+            {
+              name: 'Cabaña WANDERHÜTTE SATTELEI',
+              category: 'Gastro/Vistas',
+              img: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/20/31/d9/aussenansicht-wanderhutte.jpg?w=900&h=500&s=1',
+              desc: 'Comida con vistas increíbles en Sasbachwalden.',
+              recommendation: 'Platos típicos de montaña.',
+              restoLink: 'https://share.google/61Ea61oMvtNyTq6ep',
+            },
+            {
+              name: 'Delikaaat!',
+              category: 'Heladería',
+              img: 'https://delikaaat.de/wp-content/uploads/2023/07/Inhaber3.jpg',
+              desc: 'Heladería, gofres, tartas',
+              recommendation: 'Para el postre',
+              restoLink: 'https://maps.app.goo.gl/Fj12L6cZvPQvdCmKA',
+            },            
+            {
+              name: 'Stuttgart',
+              category: 'Cultura',
+              img: 'https://volare.volotea.com/wp-content/uploads/2023/04/stuttgart_city.jpg',
+              desc: '-',
+              schedule: '-',
+            },
+          ],
+        },
+        {
+          day: '17 Jul',
+          weekday: 'Vie',
+          ruta: 'Stuttgart → Rothenburg',
+          km: 145,
+          mapLink: 'https://www.google.com/maps/dir/a%26o+Hostel+Stuttgart+City,+Rosensteinstra%C3%9Fe+14%2F16,+70191+Stuttgart,+Alemania/Hotel+Merian+Rothenburg,+Ansbacher+Str.+42,+91541+Rothenburg+ob+der+Tauber,+Alemania/@49.0801639,9.3644782,101721m/data=!3m2!1e3!4b1!4m14!4m13!1m5!1m1!1s0x4799c4d4f8bc2769:0x2de8825491b50e9a!2m2!1d9.1914938!2d48.7933066!1m5!1m1!1s0x47988fb9a0058397:0x37aa9d03817fa3a6!2m2!1d10.1921576!2d49.3751918!3e0?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+          hotel: {
+            name: 'Hotel Merian Rothenburg',
+            booking: 'https://www.booking.com/hotel/de/bestwesternmerian.es.html?label=gen173bo-10CCIoggI46AdIClgDaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGYAgSoAgG4ArH38MwGwAIB0gIkNzRjYmRlNTEtZTFhOS00NjU1LWI3NGMtZmM2ZDg2ZDc4YTcz2AIB4AIB&sid=a420b96e1b7c0031d5fc2378d53d20f3;label=postbooking_directions',
+            maps: 'https://maps.app.goo.gl/zBSKWVscpdejUbRp9',
+            checkin: '15:00 - 21:00',
+            checkout: '07:00 - 10:30',
+            price: '180,90€',
+            nights: '1',
+            breakfast: true,
+          },
+          actividades: [
+            {
+              name: 'Museo Mercedes-Benz',
+              category: 'Motor',
+              img: 'https://www.mercedes-benz.com/assets/art-and-culture/mercedes-benz-museum/museum/01-mercedes-benz-museum-header-5120x2880.jpeg',
+              desc: 'Historia y arquitectura.',
+              schedule: '09:00 - Visita Museo',
+            },
+            {
+              name: 'Rothenburg',
+              category: 'Medieval',
+              img: 'https://fotografiandoviajes.com/wp-content/uploads/2026/08/Rothenburg-Ruta-Romantica.jpeg',
+              desc: 'La ciudad amurallada perfecta.',
+              recommendation: 'Schneeballen (bolas de nieve) en Café Schneeballen - Obere Schmiedgasse 7, 91541 Rothenburg ob der Tauber.',
+              restoLink: 'https://www.schneeballen.eu/info/filialen.html',
+              mapLink: 'https://www.google.com/maps/d/u/0/edit?mid=1ertFbayKpTmSHvc-qAnbb2T_1-auJUo&usp=sharing',
+            },
+          ],
+        },
+        {
+          day: '18 Jul',
+          weekday: 'Sab',
+          ruta: 'Rothenburg → Zirndorf',
+          km: 67,
+          mapLink: 'https://www.google.com/maps/dir/Hotel+Merian+Rothenburg,+Ansbacher+Str.+42,+91541+Rothenburg+ob+der+Tauber,+Alemania/Heinestra%C3%9Fe+12,+90513+Zirndorf,+Alemania/@49.4058876,10.4326097,50526m/am=t/data=!3m1!1e3!4m14!4m13!1m5!1m1!1s0x47988fb9a0058397:0x37aa9d03817fa3a6!2m2!1d10.1921576!2d49.3751918!1m5!1m1!1s0x479f54429e18f2b1:0x10f514a6f93d985e!2m2!1d10.964165!2d49.4365626!3e0?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+          hotel: {
+            name: 'Feirenwohnung Lautner',
+            booking: 'https://www.booking.com/hotel/de/ferienwohnung-lautner.es.html?label=v3.cmlflth9qxma30826qfbi96lk&sid=a420b96e1b7c0031d5fc2378d53d20f3;label=postbooking_directions',
+            maps: 'https://www.google.com/maps/place/Heinestra%C3%9Fe+12,+90513+Zirndorf,+Alemania/@49.4365661,10.9615901,17z/data=!3m1!4b1!4m6!3m5!1s0x479f54429e18f2b1:0x10f514a6f93d985e!8m2!3d49.4365626!4d10.964165!16s%2Fg%2F11c29nbxnb?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+            checkin: '14:00 - 18:00',
+            checkout: '10:00',
+            price: '270€',
+            nights: '2',
+            breakfast: false,
+          },
+          actividades: [
+            {
+              name: 'Muralla de Rothenburg',
+              category: 'Pueblo',
+              img: 'https://fotografiandoviajes.com/wp-content/uploads/2026/08/Vista-Rothenburg-ob-der-Tauber-Ruta-Romantica-Alemania.jpeg',
+              desc: 'Recorrido por lo alto de la muralla.',
+              schedule: '09:30 - Inicio ruta\n13:00 - Salchichas en el mercado',
+              mapLink: 'https://www.google.com/maps/d/u/0/edit?mid=1ertFbayKpTmSHvc-qAnbb2T_1-auJUo&usp=sharing',
+            },
+          ],
+        },
+        {
+          day: '19 Jul',
+          weekday: 'Dom',
+          ruta: 'Zirndorf: Playmobil',
+          km: 4,
+          mapLink: 'https://www.google.com/maps/dir/Heinestra%C3%9Fe+12,+90513+Zirndorf,+Alemania/PLAYMOBIL+-Fun+Park,+Brandst%C3%A4tterstra%C3%9Fe+2-10,+90513+Zirndorf,+Alemania/Heinestra%C3%9Fe+12,+90513+Zirndorf,+Alemania/@49.4337578,10.947388,1578m/data=!3m2!1e3!4b1!4m20!4m19!1m5!1m1!1s0x479f54429e18f2b1:0x10f514a6f93d985e!2m2!1d10.964165!2d49.4365626!1m5!1m1!1s0x479f54885049b0b1:0xa69355e9e41078d6!2m2!1d10.9435939!2d49.4307455!1m5!1m1!1s0x479f54429e18f2b1:0x10f514a6f93d985e!2m2!1d10.964165!2d49.4365626!3e0?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+          hotel: {
+            name: 'Feirenwohnung Lautner',
+            booking: 'https://www.booking.com/hotel/de/ferienwohnung-lautner.es.html?label=v3.cmlflth9qxma30826qfbi96lk&sid=a420b96e1b7c0031d5fc2378d53d20f3;label=postbooking_directions',
+            maps: 'https://www.google.com/maps/place/Heinestra%C3%9Fe+12,+90513+Zirndorf,+Alemania/@49.4365661,10.9615901,17z/data=!3m1!4b1!4m6!3m5!1s0x479f54429e18f2b1:0x10f514a6f93d985e!8m2!3d49.4365626!4d10.964165!16s%2Fg%2F11c29nbxnb?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+            checkin: '14:00 - 18:00',
+            checkout: '10:00',
+            price: '270€',
+            nights: '2',
+            breakfast: false,
+          },
+          actividades: [
+            {
+              name: 'Playmobil-FunPark',
+              category: 'Niños',
+              img: 'https://www.ambienthotel.de/bilder/slider/playmobil-funpark-piratenschiff.jpg',
+              desc: 'Parque interactivo sin mecánicas.',
+              recommendation: 'Merienda con galletas Lebkuchen.',
+              restoLink: '#',
+            },
+          ],
+        },
+        {
+          day: '20 Jul',
+          weekday: 'Lun',
+          ruta: 'Zirndorf → Nuremberg → Múnich',
+          km: 168,
+          mapLink: 'https://www.google.com/maps/dir/Heinestra%C3%9Fe+12,+90513+Zirndorf,+Alemania/N%C3%BAremberg,+Alemania/Aeropuerto+Internacional+de+M%C3%BAnich-Franz+Josef+Strauss,+Nordallee+25,+85356+M%C3%BCnchen-Flughafen,+Alemania/@48.8871585,10.7137713,204232m/data=!3m2!1e3!4b1!4m20!4m19!1m5!1m1!1s0x479f54429e18f2b1:0x10f514a6f93d985e!2m2!1d10.964165!2d49.4365626!1m5!1m1!1s0x479f57aeb5b61cd3:0xdd5daf85a98c21b7!2m2!1d11.0745641!2d49.4542881!1m5!1m1!1s0x479e135923da6d45:0xe3c57a853a56cf4b!2m2!1d11.7831852!2d48.3536407!3e0?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+          hotel: {
+            name: 'Brera Apartments',
+            booking: 'https://www.booking.com/hotel/de/brera-serviced-apartments-munich-munchen.es.html?label=v3.cmlflth9qxma30826qfbi96lk&sid=a420b96e1b7c0031d5fc2378d53d20f3;label=postbooking_directions',
+            maps: 'https://www.google.com/maps/place/Westendstra%C3%9Fe+170,+80686+M%C3%BCnchen,+Alemania/@48.1354852,11.521294,17z/data=!3m1!4b1!4m6!3m5!1s0x479dd8a18e33e809:0x11d513f2416de4f1!8m2!3d48.1354816!4d11.5238689!16s%2Fg%2F11s3d33hwm?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+            checkin: '15:00 - 00:00',
+            checkout: '11:00',
+            price: '388,80€',
+            nights: '3',
+            breakfast: false,
+          },
+          actividades: [
+            {
+              name: 'Centro de Nuremberg',
+              category: 'Historia',
+              img: 'https://www.cestee.es/images/37/74/73774-920w.webp',
+              desc: 'Westtorgraben: Punto de inicio cerca de la muralla (ideal para dejar el coche)\nHenkersteg: El Puente del Verdugo (uno de los puntos más fotogénicos)\nWeißgerbergasse: La calle con las casas de entramado de madera más bonitas\nKaiserburg: El Castillo Imperial (vistas de toda la ciudad)\nBratwursthäusle: Parada obligatoria para comer las famosas salchichas de Núremberg\nHauptmarkt: Plaza del mercado principal con la Fuente Bonita (Schöner Brunnen)\nFrauenkirche: La Iglesia de Nuestra Señora y su reloj\nMuseumsbrücke: Puente con vistas finales antes de volver o seguir de compras.',
+              schedule: '10:00 - Visita Castillo',
+              mapLink: 'https://www.google.com/maps/dir/Westtorgraben,+N%C3%BCrnberg,+Alemania/Puente+del+Ahorcado,+Henkersteg,+90403+N%C3%BCrnberg,+Alemania/Wei%C3%9Fgerbergasse,+37-7,+90403+N%C3%BCrnberg,+Alemania/Castillo+de+N%C3%BAremberg,+Burg+17,+90403+N%C3%BCrnberg,+Alemania/Bratwursth%C3%A4usle,+Rathauspl.+1,+90403+N%C3%BCrnberg,+Alemania/Hauptmarkt,+90403+N%C3%BCrnberg,+Alemania/Museumsbr%C3%BCcke,+90403+N%C3%BCrnberg,+Alemania/@49.4552548,11.0717703,520m/data=!3m2!1e3!5s0x479f57af9200669d:0x60d10a436239ac1e!4m44!4m43!1m5!1m1!1s0x479f57ac252608ed:0x647cbe8f32d4599d!2m2!1d11.0696303!2d49.4538686!1m5!1m1!1s0x479f5748043c5e97:0x679655419c878fcc!2m2!1d11.0730657!2d49.4531258!1m5!1m1!1s0x479f57ae425be3d5:0x9368db581e465f43!2m2!1d11.0738812!2d49.4553547!1m5!1m1!1s0x479f57b0484a9207:0xa52e33decf29c9b!2m2!1d11.0756516!2d49.4580134!1m5!1m1!1s0x479f57af8dc40267:0xc3efee020b1a43ab!2m2!1d11.0767387!2d49.4549976!1m5!1m1!1s0x479f57a581beec25:0xd069918617a249e0!2m2!1d11.0777685!2d49.4539848!1m5!1m1!1s0x479f57a5924c0bfb:0x7971e27483841ea1!2m2!1d11.0779507!2d49.4527365!3e2?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+            },
+            {
+              name: 'Castillo de Núremberg',
+              category: 'Historia',
+              img: 'https://www.kaiserburg-nuernberg.de/bilder/burg/burg-aussen/kaiserburg-luftbild_www.kreativ-instinkt.de_DI026142-790.jpg',
+              desc: 'Kaiserburg: Sede del Sacro Imperio.',
+              schedule: '10:00 - Visita Castillo',
+            },
+            {
+              name: 'Bratwursthäusle',
+              category: 'Gastro',
+              img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk47bVAcyEwxP1YL58akN6GkeKh3CzJb5Y_w&s',
+              desc: 'Las salchichas más famosas de Núremberg.',
+              recommendation: 'Nürnberger Rostbratwurst. Coburg bratwurst with a spicy filling, or the Treuchtlingen bratwurst',
+              restoLink: 'https://share.google/iR48xPX3LKxgNcqLS',
+            },
+          ],
+        },
+        {
+          day: '21 Jul',
+          weekday: 'Mar',
+          ruta: 'Múnich',
+          km: 0,
+          hotel: {
+            name: 'Brera Apartments',
+            booking: 'https://www.booking.com/hotel/de/brera-serviced-apartments-munich-munchen.es.html?label=v3.cmlflth9qxma30826qfbi96lk&sid=a420b96e1b7c0031d5fc2378d53d20f3;label=postbooking_directions',
+            maps: 'https://www.google.com/maps/place/Westendstra%C3%9Fe+170,+80686+M%C3%BCnchen,+Alemania/@48.1354852,11.521294,17z/data=!3m1!4b1!4m6!3m5!1s0x479dd8a18e33e809:0x11d513f2416de4f1!8m2!3d48.1354816!4d11.5238689!16s%2Fg%2F11s3d33hwm?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+            checkin: '15:00 - 00:00',
+            checkout: '11:00',
+            price: '388,80€',
+            nights: '3',
+            breakfast: false,
+          },
+          actividades: [
+            {
+              name: 'Marienplatz & Viktualienmarkt',
+              category: 'Múnich',
+              img: 'https://aliveandroaming.com/wp-content/uploads/2025/11/DSC00134.jpg',
+              desc: 'Carrillón y mercado al aire libre.',
+              recommendation: 'Schmalznudel en Café Frischhut.',
+              restoLink: '#',
+            },
+            {
+              name: 'Deutsches Museum',
+              category: 'Ciencia',
+              img: 'https://b3751403.smushcdn.com/3751403/wp-content/uploads/2024/12/Aviation-DEUTSCHES-MUSEUM.webp?lossy=0&strip=1&webp=1',
+              desc: 'El museo de ciencia más grande.',
+              schedule: '10:00 - Apertura',
+            },
+            {
+              name: 'Surf en el Eisbach',
+              category: 'Curiosidad',
+              img: 'https://www.mybucketlistevents.com/wp-content/uploads/2023/11/Munich-Surfing-1.png',
+              desc: 'Ver surfistas en el Jardín Inglés.',
+              recommendation: 'Codillo en Augustiner-Keller.',
+              restoLink: '#',
+            },
+          ],
+        },
+        {
+          day: '22 Jul',
+          weekday: 'Mie',
+          ruta: 'Múnich',
+          km: 0,
+          hotel: {
+            name: 'Brera Apartments',
+            booking: 'https://www.booking.com/hotel/de/brera-serviced-apartments-munich-munchen.es.html?label=v3.cmlflth9qxma30826qfbi96lk&sid=a420b96e1b7c0031d5fc2378d53d20f3;label=postbooking_directions',
+            maps: 'https://www.google.com/maps/place/Westendstra%C3%9Fe+170,+80686+M%C3%BCnchen,+Alemania/@48.1354852,11.521294,17z/data=!3m1!4b1!4m6!3m5!1s0x479dd8a18e33e809:0x11d513f2416de4f1!8m2!3d48.1354816!4d11.5238689!16s%2Fg%2F11s3d33hwm?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D',
+            checkin: '15:00 - 00:00',
+            checkout: '11:00',
+            price: '388,80€',
+            nights: '3',
+            breakfast: false,
+          },
+          actividades: [
+            {
+              name: 'Marienplatz & Viktualienmarkt',
+              category: 'Múnich',
+              img: 'https://aliveandroaming.com/wp-content/uploads/2025/11/DSC00134.jpg',
+              desc: 'Carrillón y mercado al aire libre.',
+              recommendation: 'Schmalznudel en Café Frischhut.',
+              restoLink: '#',
+            },           
+          ],
+        },
+        {
+          day: '23 Jul',
+          weekday: 'Jue',
+          ruta: 'Regreso',
+          km: 0,
+          hotel: {
+            name: 'Casa',
+            booking: '#',
+            maps: '#',
+            checkin: '-',
+            checkout: '-',
+            price: '-',
+            nights: '-',
+            breakfast: false,
+          },
+          actividades: [
+            {
+              name: 'Desayuno Bávaro',
+              category: 'Tradición',
+              img: 'https://funkygermany.com/wp-content/uploads/2020/11/eating-weisswurst-bavarian-sausage-1024x683.jpg',
+              desc: 'Salchicha blanca antes de las 12.',
+              recommendation: 'Weisswurst con mostaza dulce.',
+              restoLink: '#',
+              schedule: '09:00 - Desayuno\n11:30 - Salida al aeropuerto',
+            },
+          ],
+        },
+      ];
+
+      let budgetChart;
+      let activeFilter = null;
+      let currentDayIdx = 0;
+      let currentActivityIdx = 0;
+
+      function updateExpenseStats() {
+        let aggregated = { Alojamiento: 0, Transporte: 0, Ocio: 0, Comida: 0 };
+        rawExpenses.forEach((exp) => {
+          if (aggregated.hasOwnProperty(exp.cat)) aggregated[exp.cat] += exp.amount;
+        });
+        const total = Object.values(aggregated).reduce((a, b) => a + b, 0);
+        document.getElementById('totalGasto').innerText =
+          total.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + '€';
+
+        const summaryDiv = document.getElementById('categories-summary');
+        summaryDiv.innerHTML = '';
+        const catColors = {
+          Alojamiento: 'text-slate-900',
+          Transporte: 'text-amber-500',
+          Ocio: 'text-emerald-500',
+          Comida: 'text-indigo-500',
+        };
+
+        Object.keys(aggregated).forEach((cat) => {
+          const div = document.createElement('div');
+          div.className = `p-2 bg-white border border-slate-200 rounded-xl flex flex-col items-center justify-center cat-card ${activeFilter === cat ? 'active' : ''}`;
+          div.onclick = () => filterByCategory(cat);
+          div.innerHTML = `<p class="text-[7px] font-black text-slate-400 uppercase">${cat}</p><p class="text-[10px] font-bold ${catColors[cat]}">${aggregated[cat].toFixed(2)}€</p>`;
+          summaryDiv.appendChild(div);
+        });
+        renderExpenseList();
+        if (budgetChart) {
+          budgetChart.data.datasets[0].data = Object.values(aggregated);
+          budgetChart.update();
+        }
+      }
+
+      function filterByCategory(cat) {
+        activeFilter = activeFilter === cat ? null : cat;
+        document.getElementById('btn-reset-filter').classList.toggle('hidden', !activeFilter);
+        document.getElementById('list-title').innerText = activeFilter
+          ? `Gastos de ${activeFilter}`
+          : 'Movimientos';
+        updateExpenseStats();
+      }
+
+      function renderExpenseList() {
+        const listDiv = document.getElementById('expense-list');
+        listDiv.innerHTML = '';
+        const filtered = activeFilter
+          ? rawExpenses.filter((e) => e.cat === activeFilter)
+          : rawExpenses;
+        [...filtered].reverse().forEach((exp) => {
+          const item = document.createElement('div');
+          item.className =
+            'flex justify-between items-center text-[10px] p-2 bg-slate-50 rounded-lg border border-slate-100';
+          item.innerHTML = `<div><p class="font-bold text-slate-900">${exp.desc}</p><p class="text-[8px] uppercase opacity-50">${exp.cat}</p></div><span class="font-black text-slate-900">${exp.amount.toFixed(2)}€</span>`;
+          listDiv.appendChild(item);
+        });
+      }      
+      
+      function renderItinerary() {
+        const list = document.getElementById('itinerary-list');
+        list.innerHTML = '';
+
+        // Añadimos "i" como índice del día
+        itineraryData.forEach((item, i) => {
+            const card = document.createElement('div');
+            card.className = 'bg-white border border-slate-300 rounded-[2.5rem] overflow-hidden shadow-lg mb-8';
+            card.innerHTML = `
+                <div class="p-8 flex flex-col md:row gap-6 cursor-pointer border-b border-slate-100" onclick="window.open('${item.mapLink}', '_blank')">
+                    <div class="flex gap-4 items-center">
+                     <div class="bg-slate-900 text-white w-16 h-16 rounded-3xl flex flex-col items-center justify-center shrink-0">
+                        <span class="text-[8px] font-black opacity-60 uppercase">${item.weekday}</span>
+                        <span class="text-xl font-black text-white">${item.day.split(' ')[0]}</span>
+                     </div>
+                     <div class="flex-1">
+                        <h4 class="text-lg font-black text-slate-900 uppercase italic leading-tight">${item.ruta}</h4>
+                        <p class="text-[10px] text-amber-600 font-black uppercase tracking-widest mt-1">📍 Etapa: ${item.km} km</p>
+                     </div>
+                    </div>
+                </div>
+                <div class="p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 space-y-3">
+                        <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2">Actividades</p>
+                        ${item.actividades
+                        .map(
+                            (act, j) => `
+                            <div onclick="event.stopPropagation(); openActivity(${i}, ${j})" class="activity-item p-4 rounded-2xl border border-slate-100 flex justify-between items-center group cursor-pointer hover:bg-slate-50 transition-all">
+                                <div class="flex flex-col">
+                                    <span class="text-xs font-black text-slate-800 uppercase">${act.name}</span>
+                                    <span class="text-[9px] text-slate-400 font-bold uppercase">${act.category}</span>
+                                </div>
+                                <span class="text-slate-300 group-hover:text-amber-500 transition-colors text-[10px] font-black tracking-widest">DETALLES →</span>
+                            </div>
+                                                `
+                        )
+                        .join('')}
+                    </div>
+                    <div class="bg-slate-900 p-6 rounded-[2.5rem] text-white flex flex-col justify-center text-center shadow-xl">
+                     <span class="text-3xl mb-3">🏠</span>
+                        <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2">Alojamiento</p>
+                        <a href="${item.hotel.booking}" target="_blank" class="text-sm font-bold text-amber-400 underline italic mb-1 block">${item.hotel.name}</a>
+                        <div class="text-[10px] space-y-1 text-slate-300 font-medium">
+                            <p>Check-in: ${item.hotel.checkin}</p>
+                            <p>Check-out: ${item.hotel.checkout}</p>
+                            <p class="font-black text-white mt-2 italic">${item.hotel.price}</p>
+                            <p class="text-[9px] font-black uppercase mt-1 ${item.hotel.breakfast ? 'text-emerald-400' : 'text-rose-400'}">
+                         ${item.hotel.breakfast ? '☕ Desayuno Incluido' : '🍳 Sin Desayuno'}
+                            </p>
+                        </div>
+                    </div>
+                </div>`;
+            list.appendChild(card);
+        }
+        );
+      }
+
+function openActivity(dayIdx, actIdx) {
+    // 1. Guardamos la posición actual
+    currentDayIdx = dayIdx;
+    currentActivityIdx = actIdx;
+
+    // 2. Obtenemos los datos (CORREGIDO: Usamos 'act' para que coincida con el resto)
+    const day = itineraryData[dayIdx];
+    const act = day.actividades[actIdx]; 
+    const totalInDay = day.actividades.length;        
+
+    // 3. Rellenamos el modal con la información   
+    // (Cambiamos activity por act en estas líneas también)
+    document.getElementById('modal-img').src = act.img || '';
+    document.getElementById('modal-title').innerText = act.name || '';
+    document.getElementById('modal-category').innerText = act.category || '';
+    document.getElementById('modal-desc').innerText = act.desc || '';        
+
+    const historyElem = document.getElementById('modal-history-text');
+    if (historyElem) historyElem.innerText = act.history || '';
+
+    // LÓGICA DEL BOTÓN DE MAPA
+    const mapBtn = document.getElementById('modal-map');
+    // Ahora 'act' ya existe, por lo que esta línea no dará error
+    if (mapBtn) {
+        if (act.mapLink && act.mapLink !== '#' && act.mapLink !== '') {
+            mapBtn.href = act.mapLink;
+            mapBtn.classList.remove('hidden');
+        } else {
+            mapBtn.classList.add('hidden');
+        }
+    }
+
+    // 4. Lógica de visibilidad de flechas (Asegúrate de que estos IDs existan en tu HTML)
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    if (prevBtn) prevBtn.style.display = (actIdx > 0) ? 'flex' : 'none';
+    if (nextBtn) nextBtn.style.display = (actIdx < totalInDay - 1) ? 'flex' : 'none';
+
+    // Horarios
+    const schedule = document.getElementById('modal-schedule');
+    const scheduleContent = document.getElementById('modal-schedule-content');
+    if (schedule && scheduleContent) {
+        if (act.schedule) {
+            schedule.classList.remove('hidden');
+            scheduleContent.innerHTML = act.schedule
+                .split('\n')
+                .map((line) => `<div>${line}</div>`)
+                .join('');
+        } else {
+            schedule.classList.add('hidden');
+        }
+    }
+
+    // Gastronomía
+    const gastroSection = document.getElementById('modal-gastronomy');
+    const gastroContent = document.getElementById('modal-resto-content');
+    if (gastroSection && gastroContent) {
+        if (act.recommendation) {
+            gastroSection.classList.remove('hidden');
+            if (act.restoLink) {
+                gastroContent.innerHTML = `
+                    <a href="${act.restoLink}" target="_blank" class="hover:text-amber-600 transition-colors flex items-center gap-1 underline decoration-dotted">
+                        ${act.recommendation} <span class="text-[8px]">↗</span>
+                    </a>`;
+            } else {
+                gastroContent.innerText = act.recommendation;
+            }
+        } else {
+            gastroSection.classList.add('hidden');
+        }
+    }
+
+    // Compras
+    const shopping = document.getElementById('modal-shopping');
+    const shoppingList = document.getElementById('modal-shopping-list');
+    if (shopping && shoppingList) {
+        if (act.shopping && act.shopping.length > 0) {
+            shopping.classList.remove('hidden');
+            shoppingList.innerHTML = act.shopping.map((item) => `<li>${item}</li>`).join('');
+        } else {
+            shopping.classList.add('hidden');
+        }
+    }
+    
+    // 5. Abrir el modal
+    const modal = document.getElementById('activity-modal');
+    if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; 
+    }
+}
+
+      function closeModal() {
+        // Ocultamos el modal (añadiendo la clase hidden)
+        const modal = document.getElementById('activity-modal');
+        if (modal) {
+             modal.classList.add('hidden');
+        }        
+        // Devolvemos el scroll al cuerpo de la página
+        document.body.style.overflow = 'auto';
+      }
+
+      function updateKmChart() {
+        const ctxKm = document.getElementById('kmChart').getContext('2d');
+
+        // Extracción dinámica de datos desde itineraryData
+        const labels = itineraryData.map((d) => d.day);
+        const kmValues = itineraryData.map((d) => d.km);
+
+        // Cálculo del total
+        const total = kmValues.reduce((a, b) => (typeof b === 'number' ? a + b : a), 0);
+        document.getElementById('totalKm').innerText = total;
+
+        // Si ya existe un gráfico (para evitar duplicados al actualizar), lo destruimos
+        if (window.kmChartInstance) {
+          window.kmChartInstance.destroy();
+        }
+
+        window.kmChartInstance = new Chart(ctxKm, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'Kilómetros',
+                data: kmValues,
+                backgroundColor: '#f59e0b', // Color ámbar
+                hoverBackgroundColor: '#d97706',
+                borderRadius: 12,
+                borderSkipped: false,
+                barThickness: 25,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            onClick: (evt, elements) => {
+              if (elements.length > 0) {
+                const index = elements[0].index;
+                const mapUrl = itineraryData[index].mapLink;
+                if (mapUrl && mapUrl !== '#') window.open(mapUrl, '_blank');
+              }
+            },
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: '#0f172a',
+                titleFont: { size: 10, weight: 'bold' },
+                bodyFont: { size: 12, weight: 'black' },
+                callbacks: {
+                  label: (context) => ` ${context.raw} km`,
+                },
+              },
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                grid: { color: '#f1f5f9' },
+                ticks: { font: { size: 10, weight: 'bold' }, color: '#64748b' },
+              },
+              x: {
+                grid: { display: false },
+                ticks: { font: { size: 9, weight: 'black' }, color: '#94a3b8' },
+              },
+            },
+          },
+        });
+      }
+
+      function initCharts() {
+        const ctxExp = document.getElementById('budgetChart').getContext('2d');
+        budgetChart = new Chart(ctxExp, {
+          type: 'doughnut',
+          data: {
+            labels: ['Alojamiento', 'Transporte', 'Comida', 'Ocio'],
+            datasets: [
+              {
+                data: [0, 0, 0, 0],
+                backgroundColor: ['#0f172a', '#f59e0b', '#6366f1', '#10b981'],
+                borderWidth: 4,
+                borderColor: '#fff',
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '75%',
+            plugins: { legend: { display: false } },
+          },
+        });
+        updateExpenseStats();
+      }
+
+      function navigateActivity(direction) {
+        const nextIdx = currentActivityIdx + direction;
+        const activities = itineraryData[currentDayIdx].actividades;
+
+        // Solo navegamos si la siguiente actividad existe en el mismo día
+        if (nextIdx >= 0 && nextIdx < activities.length) {
+         openActivity(currentDayIdx, nextIdx);
+        }
+      }
+
+      window.onload = () => {
+        initCharts();
+        renderItinerary();
+        updateKmChart();
+      };
+    </script>
+  </body>
+</html>
