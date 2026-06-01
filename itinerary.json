@@ -552,7 +552,7 @@
         "name": "Marienplatz & Viktualienmarkt",
         "category": "Múnich",
         "img": "https://aliveandroaming.com/wp-content/uploads/2025/11/DSC00134.jpg",
-        "desc": "Carrillón y mercado al aire libre.",
+        "desc": "Carrillón y mercado al aire libre. Glockenspiel a las 11:00, 12:00 y 17:00: figuras representan torneos de caballeros y bailes históricos.",
         "recommendation": "Schmalznudel en Café Frischhut. En Viktualienmarkt (cerrado domingos): Bocadillo de Krustenbraten en puesto Schlemmermeyer (cerdo asado con piel crujiente). Obatzda fresco (crema de queso) con Pretzels gigantes en cualquier puesto de pan. Sababa: mejor falafel y hummus para llevar.",
         "restoLink": "#"
       },
@@ -570,6 +570,12 @@
         "desc": "Ver surfistas en el Jardín Inglés.",
         "recommendation": "Codillo en Augustiner-Keller.",
         "restoLink": "#"
+      },
+      {
+        "name": "Kino am Olympiasee",
+        "category": "Ocio",
+        "img": "https://www.olympiapark.de/fileadmin/_processed_/e/4/csm_Kino_am_Olympiasee_2019_Olympiapark_Muenchen_GmbH_5_1920x1080_01_5b3b3b3b3b.jpg",
+        "desc": "Cine al aire libre junto al lago del parque olímpico. Se puede llevar comida propia y sentarse en el césped."
       }
     ]
   },
@@ -593,7 +599,7 @@
         "name": "Marienplatz & Viktualienmarkt",
         "category": "Múnich",
         "img": "https://aliveandroaming.com/wp-content/uploads/2025/11/DSC00134.jpg",
-        "desc": "Carrillón y mercado al aire libre.",
+        "desc": "Carrillón y mercado al aire libre. Glockenspiel a las 11:00, 12:00 y 17:00: figuras representan torneos de caballeros y bailes históricos.",
         "recommendation": "Schmalznudel en Café Frischhut. En Viktualienmarkt (cerrado domingos): Bocadillo de Krustenbraten en puesto Schlemmermeyer (cerdo asado con piel crujiente). Obatzda fresco (crema de queso) con Pretzels gigantes en cualquier puesto de pan. Sababa: mejor falafel y hummus para llevar.",
         "restoLink": "#"
       }
