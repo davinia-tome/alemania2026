@@ -406,7 +406,22 @@
         } catch (e) { console.error('Error cargando gastos:', e); }
       }
 
+      const EDIT_PASSWORD = 'baviera2026';
+
+      function checkPassword() {
+        const saved = sessionStorage.getItem('edit_auth');
+        if (saved === 'ok') return true;
+        const pwd = prompt('Contraseña para editar gastos:');
+        if (pwd === EDIT_PASSWORD) {
+          sessionStorage.setItem('edit_auth', 'ok');
+          return true;
+        }
+        alert('Contraseña incorrecta');
+        return false;
+      }
+
       function getToken() {
+        if (!checkPassword()) return null;
         let token = localStorage.getItem('gh_token');
         if (!token) {
           token = prompt('Introduce tu GitHub token para guardar gastos:');
