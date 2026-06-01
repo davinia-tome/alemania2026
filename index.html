@@ -393,17 +393,44 @@
     </div>
 
     <script>
-      let rawExpenses = [
-        { cat: 'Transporte', desc: 'Vuelos Lufthansa (MUC)', amount: 760.16 },
-        { cat: 'Alojamiento', desc: 'Alpen Hotel Martin', amount: 156.59 },
-        { cat: 'Alojamiento', desc: 'Casa Tandri am Rebenweg', amount: 130.0 },
-        { cat: 'Alojamiento', desc: 'Condo en Schönwald', amount: 425.0 },
-        { cat: 'Alojamiento', desc: 'M&J FeWo', amount: 773.74 },
-        { cat: 'Alojamiento', desc: 'a&o Stuttgart', amount: 60.54 },
-        { cat: 'Alojamiento', desc: 'Hotel Merian Rothenburg', amount: 180.9 },
-        { cat: 'Alojamiento', desc: 'Ferienwohnung Lautner', amount: 270.0 },
-        { cat: 'Alojamiento', desc: 'Brera Apartments', amount: 388.8 },
-      ];
+      // Configuración del Gist para persistencia
+      const GIST_ID = '59e814efbba6f6eb239572355789de6c';
+      let rawExpenses = [];
+
+      async function loadExpenses() {
+        try {
+          const res = await fetch(`https://api.github.com/gists/${GIST_ID}`);
+          const gist = await res.json();
+          rawExpenses = JSON.parse(gist.files['expenses.json'].content);
+          updateExpenseStats();
+        } catch (e) { console.error('Error cargando gastos:', e); }
+      }
+
+      function getToken() {
+        let token = localStorage.getItem('gh_token');
+        if (!token) {
+          token = prompt('Introduce tu GitHub token para guardar gastos:');
+          if (token) localStorage.setItem('gh_token', token);
+        }
+        return token;
+      }
+
+      async function saveExpenses() {
+        const token = getToken();
+        if (!token) return;
+        try {
+          await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+            method: 'PATCH',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              files: { 'expenses.json': { content: JSON.stringify(rawExpenses, null, 2) } }
+            })
+          });
+        } catch (e) { console.error('Error guardando gastos:', e); }
+      }
 
       const itineraryData = [
         {
@@ -1350,6 +1377,20 @@ function openActivity(dayIdx, actIdx) {
           },
         });
         updateExpenseStats();
+
+        // Handler para añadir gastos
+        document.getElementById('expense-form').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const desc = document.getElementById('exp-desc').value;
+          const cat = document.getElementById('exp-cat').value;
+          const amount = parseFloat(document.getElementById('exp-amount').value);
+          if (desc && amount) {
+            rawExpenses.push({ cat, desc, amount });
+            await saveExpenses();
+            updateExpenseStats();
+            e.target.reset();
+          }
+        });
       }
 
       function navigateActivity(direction) {
@@ -1362,7 +1403,8 @@ function openActivity(dayIdx, actIdx) {
         }
       }
 
-      window.onload = () => {
+      window.onload = async () => {
+        await loadExpenses();
         initCharts();
         renderItinerary();
         updateKmChart();
