@@ -199,12 +199,14 @@
         "category": "Logística",
         "img": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80",
         "desc": "Abastecimiento en Schönwald.",
-        "history": "Supermercado EDEKA en el pueblo. Ideal para reponer víveres para las cenas en el apartamento.",
+        "history": "Supermercado EDEKA/REWE. Ideal para reponer víveres.",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=EDEKA+Schönwald",
         "shopping": [
-          "Cenas para el apartamento",
-          "Agua y snacks",
-          "Embutidos locales"
+          "Landjäger (embutido ahumado, snack perfecto para el coche)",
+          "Maultaschen (cena rápida)",
+          "Leberkäse caliente",
+          "Apfelschorle para los niños",
+          "Agua y snacks"
         ]
       }
     ]
@@ -239,7 +241,7 @@
         "img": "https://fotografiandoviajes.com/wp-content/uploads/2026/07/Blaue-Brucke-puente-azul-Friburgo-Brisgovia-Alemania-1.jpeg",
         "desc": "Exploración de la Catedral (Münster) y los famosos canales Bächle. ¡Cuidado con pisarlos!",
         "schedule": "11:30 - Llegada a Friburgo\n12:00 - Visita Catedral y Bächle\n15:30 - Ascenso al Schlossberg",
-        "recommendation": "Münstermarkt (cerrado domingos): Lange Rote, la salchicha roja típica (sin cebolla es la auténtica), almuerzo de mercado por excelencia. Quesos de la Selva Negra en puestos de granjas locales (Hofkäserei), pedir Bergkäse curado. Stephan's Käsekuchen: la mejor tarta de queso de Alemania, porciones para llevar.",
+        "recommendation": "Münstermarkt (cerrado domingos): Lange Rote, la salchicha roja típica (sin cebolla es la auténtica), almuerzo de mercado por excelencia. Quesos de la Selva Negra en puestos de granjas locales (Hofkäserei), pedir Bergkäse curado. Stephan's Käsekuchen: la mejor tarta de queso de Alemania. Comprar: miel de abeto y arándanos.",
         "restoLink": "#",
         "mapLink": "https://www.google.com/maps/d/u/0/edit?mid=1KPb6iiDnvK_ZqUaz7rwyLKQZJKVD3u0&usp=sharing"
       }
@@ -381,7 +383,7 @@
         "category": "Gastro/Vistas",
         "img": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/20/31/d9/aussenansicht-wanderhutte.jpg?w=900&h=500&s=1",
         "desc": "Comida con vistas increíbles en Sasbachwalden.",
-        "recommendation": "Platos típicos de montaña.",
+        "recommendation": "Vesperplatte (tabla de embutidos) en un entorno de montaña único.",
         "restoLink": "https://share.google/61Ea61oMvtNyTq6ep"
       },
       {
@@ -527,7 +529,7 @@
         "name": "Bratwursthäusle",
         "category": "Gastro",
         "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk47bVAcyEwxP1YL58akN6GkeKh3CzJb5Y_w&s",
-        "desc": "Las salchichas más famosas de Núremberg.",
+        "desc": "Las salchichas más famosas de Núremberg. Servidas en plato de peltre tradicional.",
         "recommendation": "Nürnberger Rostbratwurst. Comprar Nürnberger Lebkuchen (típico de Navidad pero se venden todo el año, snack perfecto para el coche).",
         "restoLink": "https://share.google/iR48xPX3LKxgNcqLS"
       }
