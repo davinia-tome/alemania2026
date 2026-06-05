@@ -88,6 +88,7 @@
         "img": "https://www.bodensee.eu/pois/bcp-ausflugsziele/alte-burg-meersburg/image-thumb__10641__lightbox/burg-meersburg3.jpeg",
         "desc": "Perla medieval del lago.",
         "history": "El Altes Schloss es un viaje al pasado medieval. Vistas increíbles.",
+        "recommendation": "Felchen (pescado fresco del lago). Comprar manzanas del Bodensee en puestos locales.",
         "mapLink": "https://www.google.com/maps/d/u/0/edit?mid=15vm_CF4GIwHssT17LwT0WU8cjMJlKaU&usp=sharing"
       }
     ]
@@ -95,7 +96,7 @@
   {
     "day": "09 Jul",
     "weekday": "Jue",
-    "ruta": "Bermatingen → Titisee → Todtnau → Schönwald",
+    "ruta": "Bermatingen → Friedrichshafen → Todtnau → Schönwald",
     "km": 145,
     "hotel": {
       "name": "Condo en Schönwald (Ludwig-Uhland-Str. 17)",
@@ -107,8 +108,15 @@
       "nights": "3",
       "breakfast": false
     },
-    "mapLink": "https://www.google.com/maps/dir/Bermatingen/Titisee/Todtnau/Schönwald",
+    "mapLink": "https://www.google.com/maps/dir/Bermatingen/Friedrichshafen/Todtnau/Schönwald",
     "actividades": [
+      {
+        "name": "Museo Zeppelin",
+        "category": "Museo",
+        "img": "https://www.ثzeppelin-museum.de/assets/images/c/Zeppelin%20Museum%202020%20009%20c%20Myrzik%20und%20Jarisch-f5cc4f5d.jpg",
+        "desc": "Historia de los dirigibles. Muy interactivo, ideal para niños.",
+        "recommendation": "Schwarzwälder Schinken (jamón de la Selva Negra) para el picnic de la tarde."
+      },
       {
         "name": "Lago Titisee",
         "category": "Icono Selva Negra",
@@ -198,7 +206,7 @@
         "name": "Compra Logística",
         "category": "Logística",
         "img": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80",
-        "desc": "Abastecimiento en Schönwald.",
+        "desc": "Abastecimiento en Schönwald. Mercado semanal en Schönau (10:00-14:30) para productos frescos.",
         "history": "Supermercado EDEKA/REWE. Ideal para reponer víveres.",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=EDEKA+Schönwald",
         "shopping": [
@@ -268,9 +276,16 @@
         "name": "Schiltach",
         "category": "Pueblo Medieval",
         "img": "https://fotografiandoviajes.com/wp-content/uploads/2025/07/Schiltach-recorrido-visitar-selva-negra.jpeg",
-        "desc": "Paseo por la Marktplatz y fotos en el río.",
+        "desc": "El pueblo de entramado de madera más bonito de la zona. Paseo por la Marktplatz y fotos en el río.",
         "schedule": "11:00 - Llegada a Schiltach\n13:30 - Comida en ruta",
         "mapLink": "https://www.google.com/maps/d/u/0/edit?mid=1Of1vegtCfJFRhkuagBz4dbi8tfC-vfo&usp=sharing"
+      },
+      {
+        "name": "Paseo por el Rin",
+        "category": "Relax",
+        "img": "https://images.unsplash.com/photo-1567359781514-3b964ea46b80?auto=format&fit=crop&w=800&q=80",
+        "desc": "Paseo tranquilo a orillas del río Rin. También se pueden visitar los impresionantes vestíbulos de los hoteles de Europa-Park.",
+        "recommendation": "Cena de Flammkuchen (pizza alsaciana)."
       }
     ]
   },
@@ -374,9 +389,15 @@
         "name": "Gengenbach",
         "category": "Pueblo",
         "img": "https://content-viajes.nationalgeographic.com.es/medio/2023/08/14/gengenbach_d02e411e_230814110846_1200x801.jpg",
-        "desc": "El pueblo de chocolate.",
+        "desc": "Pueblo de cuento de hadas.",
         "schedule": "10:30 - Parada rápida",
         "mapLink": "https://www.google.com/maps/d/u/0/edit?mid=1QjTYVQnTWu-wMo8c7Mb0_6trlFnCAwk&usp=sharing"
+      },
+      {
+        "name": "Sasbachwalden",
+        "category": "Pueblo",
+        "img": "https://www.schwarzwald-tourismus.info/Media/Attraktionen/Sasbachwalden",
+        "desc": "Famoso por sus flores y sus 'tiendas de vino' de autoservicio en el campo."
       },
       {
         "name": "Cabaña WANDERHÜTTE SATTELEI",
@@ -398,7 +419,7 @@
         "name": "Stuttgart",
         "category": "Cultura",
         "img": "https://volare.volotea.com/wp-content/uploads/2023/04/stuttgart_city.jpg",
-        "desc": "-",
+        "desc": "Jazzopen Stuttgart en la Schlossplatz (música al aire libre).",
         "schedule": "-",
         "recommendation": "Maultaschen: raviolis gigantes típicos de la región."
       }
@@ -407,7 +428,7 @@
   {
     "day": "17 Jul",
     "weekday": "Vie",
-    "ruta": "Stuttgart → Rothenburg",
+    "ruta": "Stuttgart → Schwäbisch Hall → Rothenburg",
     "km": 145,
     "mapLink": "https://www.google.com/maps/dir/a%26o+Hostel+Stuttgart+City,+Rosensteinstra%C3%9Fe+14%2F16,+70191+Stuttgart,+Alemania/Hotel+Merian+Rothenburg,+Ansbacher+Str.+42,+91541+Rothenburg+ob+der+Tauber,+Alemania/@49.0801639,9.3644782,101721m/data=!3m2!1e3!4b1!4m14!4m13!1m5!1m1!1s0x4799c4d4f8bc2769:0x2de8825491b50e9a!2m2!1d9.1914938!2d48.7933066!1m5!1m1!1s0x47988fb9a0058397:0x37aa9d03817fa3a6!2m2!1d10.1921576!2d49.3751918!3e0?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
     "hotel": {
@@ -425,14 +446,20 @@
         "name": "Museo Mercedes-Benz",
         "category": "Motor",
         "img": "https://www.mercedes-benz.com/assets/art-and-culture/mercedes-benz-museum/museum/01-mercedes-benz-museum-header-5120x2880.jpeg",
-        "desc": "Historia y arquitectura.",
+        "desc": "Imprescindible para los amantes del motor.",
         "schedule": "09:00 - Visita Museo"
+      },
+      {
+        "name": "Schwäbisch Hall",
+        "category": "Pueblo",
+        "img": "https://www.schwaebischhall.de/fileadmin/_processed_/a/8/csm_Schwaebisch_Hall_Marktplatz_Kirche_d7e8f8e8e8.jpg",
+        "desc": "Plaza mayor y puentes cubiertos."
       },
       {
         "name": "Rothenburg",
         "category": "Medieval",
         "img": "https://fotografiandoviajes.com/wp-content/uploads/2026/08/Rothenburg-Ruta-Romantica.jpeg",
-        "desc": "La ciudad amurallada perfecta.",
+        "desc": "La ciudad amurallada perfecta. Por la noche: Toppler Theater.",
         "recommendation": "Schneeballen (bolas de nieve) en Café Schneeballen - Obere Schmiedgasse 7. Mercado del sábado por la mañana: cerezas y embutidos locales ahumados.",
         "restoLink": "https://www.schneeballen.eu/info/filialen.html",
         "mapLink": "https://www.google.com/maps/d/u/0/edit?mid=1ertFbayKpTmSHvc-qAnbb2T_1-auJUo&usp=sharing"
@@ -460,8 +487,9 @@
         "name": "Muralla de Rothenburg",
         "category": "Pueblo",
         "img": "https://fotografiandoviajes.com/wp-content/uploads/2026/08/Vista-Rothenburg-ob-der-Tauber-Ruta-Romantica-Alemania.jpeg",
-        "desc": "Recorrido por lo alto de la muralla.",
+        "desc": "Recorrido por lo alto de la muralla. Visita a la tienda de Navidad Käthe Wohlfahrt. Wochenmarkt (mercado semanal) en la plaza.",
         "schedule": "09:30 - Inicio ruta\n13:00 - Salchichas en el mercado",
+        "recommendation": "Drei im Weckla (3 bratwurst en panecillo).",
         "mapLink": "https://www.google.com/maps/d/u/0/edit?mid=1ertFbayKpTmSHvc-qAnbb2T_1-auJUo&usp=sharing"
       }
     ]
@@ -556,7 +584,7 @@
         "category": "Múnich",
         "img": "https://aliveandroaming.com/wp-content/uploads/2025/11/DSC00134.jpg",
         "desc": "Carrillón y mercado al aire libre. Glockenspiel a las 11:00, 12:00 y 17:00: figuras representan torneos de caballeros y bailes históricos.",
-        "recommendation": "Café Frischhut (Prälat-Zistl-Str. 8): Schmalznudel (dónut plano frito), pedir 'frisch aus dem Fett' (recién hecho). También Rohrnudeln (rellenos de mermelada) y Striezel. Llevar efectivo. En Viktualienmarkt (cerrado domingos): Krustenbraten en Schlemmermeyer, Obatzda con Pretzels, Sababa para falafel.",
+        "recommendation": "Café Frischhut (Prälat-Zistl-Str. 8): Schmalznudel (dónut plano frito), pedir 'frisch aus dem Fett' (recién hecho). También Rohrnudeln y Striezel. Llevar efectivo. En Viktualienmarkt (cerrado domingos): Leberkäse caliente, Krustenbraten en Schlemmermeyer, Obatzda con Pretzels, Sababa para falafel.",
         "restoLink": "#"
       },
       {
@@ -603,7 +631,7 @@
         "category": "Múnich",
         "img": "https://aliveandroaming.com/wp-content/uploads/2025/11/DSC00134.jpg",
         "desc": "Carrillón y mercado al aire libre. Glockenspiel a las 11:00, 12:00 y 17:00: figuras representan torneos de caballeros y bailes históricos.",
-        "recommendation": "Café Frischhut (Prälat-Zistl-Str. 8): Schmalznudel (dónut plano frito), pedir 'frisch aus dem Fett' (recién hecho). También Rohrnudeln (rellenos de mermelada) y Striezel. Llevar efectivo. En Viktualienmarkt (cerrado domingos): Krustenbraten en Schlemmermeyer, Obatzda con Pretzels, Sababa para falafel.",
+        "recommendation": "Café Frischhut (Prälat-Zistl-Str. 8): Schmalznudel (dónut plano frito), pedir 'frisch aus dem Fett' (recién hecho). También Rohrnudeln y Striezel. Llevar efectivo. En Viktualienmarkt (cerrado domingos): Leberkäse caliente, Krustenbraten en Schlemmermeyer, Obatzda con Pretzels, Sababa para falafel.",
         "restoLink": "#"
       }
     ]
