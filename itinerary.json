@@ -539,16 +539,27 @@
         "name": "Centro de Nuremberg",
         "category": "Historia",
         "img": "https://www.cestee.es/images/37/74/73774-920w.webp",
-        "desc": "Westtorgraben: Punto de inicio cerca de la muralla (ideal para dejar el coche)\nHenkersteg: El Puente del Verdugo (uno de los puntos más fotogénicos)\nWeißgerbergasse: La calle con las casas de entramado de madera más bonitas\nKaiserburg: El Castillo Imperial (vistas de toda la ciudad)\nBratwursthäusle: Parada obligatoria para comer las famosas salchichas de Núremberg\nHauptmarkt: Plaza del mercado principal con la Fuente Bonita (Schöner Brunnen)\nFrauenkirche: La Iglesia de Nuestra Señora y su reloj\nMuseumsbrücke: Puente con vistas finales antes de volver o seguir de compras.",
-        "schedule": "Mañana: Salida de Zirndorf (15 min). Paseo por Kaiserburg y Weissgerbergasse.\n13:00 - Comida en Bratwursthäusle.\nTarde: Paseo por Hauptmarkt y salida hacia Múnich (1h 45min).\nNoche: Llegada a Brera Apartments, check-in y cena ligera.",
+        "desc": "Ciudad medieval amurallada (muralla 1325, 4 torres originales). Centro congresos nazis y Juicios de Núremberg. Muy bombardeada WWII pero reconstruida. Río Pegnitz divide casco en 2: distrito Lorenz (sur) y Sebald (norte).",
+        "schedule": "RUTA CENTRO:\n1. Torre Frauentortum - Entrada al Altstadt por calle Königstraße\n2. Weißgerbergasse - Calle más bonita, casas entramado madera\n3. Henkersteg (Puente Verdugo, 1457) - MUY FOTOGÉNICO, madera sobre río Pegnitz\n4. Kettensteg (Puente Hierro, 1825) - Primer puente hierro colgante, fotos espectaculares\n5. Kaiserburg (Castillo Imperial) - Residencia emperadores 1050-1571. Mejores vistas ciudad. Visitar: capilla románica, habitaciones, pozo hondo, torre Sinwell. 7€ completo / 3.50€ solo pozo+torre. Horario: 9-18h (abr-sep), 10-16h (oct-mar)\n6. Hauptmarkt - Corazón ciudad, fuente Schöner Brunnen. Mercado Navidad famoso\n7. Frauenkirche - Reloj astronómico\n8. Bratwursthäusle - OBLIGATORIO: salchichas Núremberg\n9. Museumsbrücke - Vistas finales",
+        "history": "Hitler la declaró 'Ciudad de los Congresos Partidarios del Tercer Reich'. Una de las más bombardeadas al final de la guerra. Tras WWII: Juicios de Núremberg (Sala 600, visitable con audioguía). Guardaba reliquias y joyas imperiales → muralla ampliada 2 veces.",
+        "recommendation": "Sala Juicios Núremberg (Sala 600): audioguía en español, muy recomendable si hay tiempo. Mercados navideños: Christkindlesmarkt (principal), Kinderweihnacht (niños), Handwerkerhof (artesanía).",
         "mapLink": "https://www.google.com/maps/dir/Westtorgraben,+N%C3%BCrnberg,+Alemania/Puente+del+Ahorcado,+Henkersteg,+90403+N%C3%BCrnberg,+Alemania/Wei%C3%9Fgerbergasse,+37-7,+90403+N%C3%BCrnberg,+Alemania/Castillo+de+N%C3%BAremberg,+Burg+17,+90403+N%C3%BCrnberg,+Alemania/Bratwursth%C3%A4usle,+Rathauspl.+1,+90403+N%C3%BCrnberg,+Alemania/Hauptmarkt,+90403+N%C3%BCrnberg,+Alemania/Museumsbr%C3%BCcke,+90403+N%C3%BCrnberg,+Alemania/@49.4552548,11.0717703,520m/data=!3m2!1e3!5s0x479f57af9200669d:0x60d10a436239ac1e!4m44!4m43!1m5!1m1!1s0x479f57ac252608ed:0x647cbe8f32d4599d!2m2!1d11.0696303!2d49.4538686!1m5!1m1!1s0x479f5748043c5e97:0x679655419c878fcc!2m2!1d11.0730657!2d49.4531258!1m5!1m1!1s0x479f57ae425be3d5:0x9368db581e465f43!2m2!1d11.0738812!2d49.4553547!1m5!1m1!1s0x479f57b0484a9207:0xa52e33decf29c9b!2m2!1d11.0756516!2d49.4580134!1m5!1m1!1s0x479f57af8dc40267:0xc3efee020b1a43ab!2m2!1d11.0767387!2d49.4549976!1m5!1m1!1s0x479f57a581beec25:0xd069918617a249e0!2m2!1d11.0777685!2d49.4539848!1m5!1m1!1s0x479f57a5924c0bfb:0x7971e27483841ea1!2m2!1d11.0779507!2d49.4527365!3e2?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D"
       },
       {
         "name": "Castillo de Núremberg",
         "category": "Historia",
         "img": "https://www.kaiserburg-nuernberg.de/bilder/burg/burg-aussen/kaiserburg-luftbild_www.kreativ-instinkt.de_DI026142-790.jpg",
-        "desc": "Kaiserburg: Sede del Sacro Imperio.",
-        "schedule": "10:00 - Visita Castillo"
+        "desc": "Kaiserburg: Residencia emperadores Sacro Imperio (1050-1571). Domina desde lo alto como guardián de la ciudad. 3 partes: Kaiserburg (edificio Emperador), Burggrafenburg (gobernadores), städtisch Burganlage (casitas). MEJORES VISTAS de toda la ciudad.",
+        "schedule": "VISITAR:\n- Capilla doble románica\n- Habitaciones de los emperadores\n- Pozo hondo (Tiefer Brunnen)\n- Torre Sinwell (subir para vistas)\n- Museo del Castillo\n\nPRECIOS: 7€ completo / 3.50€ solo pozo+torre\nHORARIO: 9-18h (abr-sep), 10-16h (oct-mar). Navidad: L-V 10-16h, S-D 9-17h"
+      },
+      {
+        "name": "Campo Zeppelin y Coliseo",
+        "category": "Historia WWII",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Reichsparteitagsgel%C3%A4nde_Zeppelinfeld.jpg/1200px-Reichsparteitagsgel%C3%A4nde_Zeppelinfeld.jpg",
+        "desc": "Reichsparteitagsgelände: Complejo nazi en las afueras. ENTRADA GRATIS (exterior). Impresiona aunque no sea turístico. Conservado como recuerdo para que no vuelva a suceder.",
+        "schedule": "COLISEO (Kongresshalle):\n- Réplica del Coliseo de Roma mandada construir por Hitler\n- Construido por prisioneros de campos de concentración\n- A MEDIO HACER: estalló la guerra. Se ve material de obra apilado\n- Interior visitable: Centro de Documentación (5€, L-V 9-18h, S-D 10-17h)\n- Desde lago Dutzendteich: vistas espectaculares del coliseo\n\nCAMPO ZEPPELIN (Zeppelinfeld):\n- Tribuna donde Hitler daba sus discursos\n- Cientos de miles de personas le escuchaban en la explanada\n- Sin simbología nazi (prohibida en Alemania)\n- Hoy atravesado por circuito de carreras (intento de olvidar)\n- Pocos turistas lo visitan, pero IMPRESIONA",
+        "history": "Hitler quiso hacer de Núremberg su bastión central, 'Ciudad de los Congresos del Tercer Reich'. El Coliseo iba a ser sede de congresos del partido nazi. Solo disfrutó 5 meses del castillo antes de morir misteriosamente.",
+        "recommendation": "CÓMO LLEGAR: Tren S2 hasta Nürnberg Frankenstadion (~10 min) o Tranvía 9 hasta Nürnberg Doku-Zentrum (frente al Coliseo). Desde Coliseo, paseo agradable por parque junto lago hasta Campo Zeppelin."
       },
       {
         "name": "Bratwursthäusle",
