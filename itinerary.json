@@ -451,11 +451,13 @@
         "desc": "Plaza mayor y puentes cubiertos."
       },
       {
-        "name": "Rothenburg",
+        "name": "Rothenburg ob der Tauber",
         "category": "Medieval",
         "img": "https://fotografiandoviajes.com/wp-content/uploads/2026/08/Rothenburg-Ruta-Romantica.jpeg",
-        "desc": "La ciudad amurallada perfecta. Por la noche: Toppler Theater.",
-        "recommendation": "Schneeballen (bolas de nieve) en Café Schneeballen - Obere Schmiedgasse 7. Mercado del sábado por la mañana: cerezas y embutidos locales ahumados.",
+        "desc": "Ciudad medieval amurallada perfectamente conservada. Fundada s.XII. Decayó tras Guerra 30 Años (conservó casco intacto). Reconstruida tras WWII. Visita ~4h, 4km circular. Por la noche: Toppler Theater.",
+        "schedule": "RUTA 14 PARADAS:\n1. Puerta Spitaltorturm - Mejor conservada, s.XIV. Subir muralla\n2. Torre Siebersturm (1385) - Mirador oculto a la izquierda antes de cruzar\n3. Plönlein - LA POSTAL: casa amarilla entre dos torres. Fotos desde arriba\n4. Calle Obere Schmiedgasse - Carteles metálicos artesanales, fachadas colores\n5. Schneeballen - Probar el dulce típico (más curioso que rico)\n6. Marktplatz - Ayuntamiento (gótico+renacimiento). SUBIR TORRE: vistas increíbles, pago efectivo, semáforo entrada. Ratstrinkstube: reloj c/hora leyenda\n7. Tienda Navidad Käthe Wohlfahrt - Decorada todo el año. Museo Navidad enfrente\n8. Iglesia Franciscanos - Una de las más antiguas\n9. Burggarten - Jardines del castillo (destruido 1356). MIRADORES al valle Tauber. Zona tranquila\n10. Catedral San Jacobo - Doble torre, vidrieras altar. Paso Camino Santiago\n11. Bastión Klingen - Torre fortificada, vistas viñedos\n12. Iglesia San Wolfgang - Integrada en murallas, refugio en asedios\n13. Torre Blanca + Arco Röder/Markusturm - Conjunto muy fotogénico\n14. Gerlachschmiede - Antigua herrería triangular. Paseo muralla hasta inicio",
+        "history": "Floreció en Edad Media como centro comercial sobre río Tauber. Decayó tras Guerra 30 Años y epidemia peste, lo que conservó intacto el casco medieval. Bombardeada en WWII pero reconstruida con donaciones. Pasa el Camino de Santiago (2500km a Compostela).",
+        "recommendation": "Schneeballen (bolas de nieve) en Café Schneeballen - Obere Schmiedgasse 7. PARKING: P1-P5 fuera murallas, pago 9-18h (app Parkster), máx diario razonable. NO aparcar dentro: caro, 2h máx. Mejor visitar temprano mañana o tarde. Torre Ayuntamiento: subir pronto para evitar colas.",
         "restoLink": "https://www.schneeballen.eu/info/filialen.html",
         "mapLink": "https://www.google.com/maps/d/u/0/edit?mid=1ertFbayKpTmSHvc-qAnbb2T_1-auJUo&usp=sharing"
       }
