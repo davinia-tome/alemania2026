@@ -253,9 +253,9 @@
   {
     "day": "12 Jul",
     "weekday": "Dom",
-    "ruta": "Schönwald → Schiltach → Lahr → Rust",
+    "ruta": "Schönwald → Schiltach → Rust",
     "km": 111,
-    "mapLink": "https://www.google.com/maps/dir/Sch%C3%B6nwald,+Alemania/Schiltach,+77761,+Alemania/Lahr,+77933,+Alemania/Rust,+77977,+Alemania/@48.2299621,7.8697043,51726m/data=!3m1!1e3!4m26!4m25!1m5!1m1!1s0x4790e8201e0f066d:0x41f6bb7a5df8940!2m2!1d8.2048757!2d48.10411!1m5!1m1!1s0x4790c8b90195f43b:0x41f6bb7a5df87d0!2m2!1d8.3468916!2d48.2917596!1m5!1m1!1s0x47912e514f5d66f7:0x41f6bb7a5df8510!2m2!1d7.8781487!2d48.33915!1m5!1m1!1s0x47913981b6a81ead:0x41f6bb7a5df8620!2m2!1d7.7256191!2d48.2672137!3e0?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
+    "mapLink": "https://www.google.com/maps/dir/Sch%C3%B6nwald,+Alemania/Schiltach,+77761,+Alemania/Rathausstra%C3%9Fe+63,+77966+Kappel-Grafenhausen-Kappel,+Alemania/@48.2842688,7.7493452,10z/data=!3m1!4b1!4m20!4m19!1m5!1m1!1s0x4790e8201e0f066d:0x41f6bb7a5df8940!2m2!1d8.2048757!2d48.10411!1m5!1m1!1s0x4790c8b90195f43b:0x41f6bb7a5df87d0!2m2!1d8.3468916!2d48.2917596!1m5!1m1!1s0x47913a0c5428c893:0x32d6007ce7d8c18f!2m2!1d7.7503161!2d48.2905139!3e0?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D",
     "hotel": {
       "name": "M&J FeWo",
       "booking": "https://www.booking.com/hotel/de/m-j-fewo.es.html?label=v3.cmlflth9qxma30826qfbi96lk&sid=a420b96e1b7c0031d5fc2378d53d20f3;label=postbooking_directions",
