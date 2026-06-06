@@ -652,7 +652,10 @@ function openActivity(dayIdx, actIdx) {
     document.getElementById('modal-desc').innerText = act.desc || '';        
 
     const historyElem = document.getElementById('modal-history-text');
-    if (historyElem) historyElem.innerText = act.history || '';
+    if (historyElem) {
+      const text = act.history || '';
+      historyElem.innerHTML = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" class="text-amber-600 hover:text-amber-700 underline">$1</a>');
+    }
 
     // LÓGICA DEL BOTÓN DE MAPA
     const mapBtn = document.getElementById('modal-map');
