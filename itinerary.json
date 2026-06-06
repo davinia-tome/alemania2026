@@ -331,8 +331,11 @@
         "name": "Europa-Park Día 1",
         "category": "Adrenalina",
         "img": "https://www.europapark.de/sites/default/files/styles/gallery_zoom/public/2023-04/europapark-panorama-02.jpg",
-        "desc": "Áreas de Francia y Suiza.",
-        "schedule": "09:00 - Apertura\n18:00 - Cierre"
+        "desc": "Mejor parque temático del mundo (10 años consecutivos Golden Ticket Awards). Áreas temáticas por países europeos. Gestión familiar desde 1975. Más equilibrado que PortAventura para familias.",
+        "schedule": "ÁREAS IMPRESCINDIBLES DÍA 1:\n- Francia, Suiza, Grecia, Rusia\n- Voletarium (simulador vuelo - USAR VIRTUAL LINE)\n- Pirates in Batavia (dark ride muy tematizado)\n- Poseidon (agua - TE MOJAS)\n\nVIRTUAL LINE (cola virtual GRATIS en app):\n- Reserva franja horaria → entras sin espera\n- Atracciones: Voletarium, Voltron, Blue Fire, WODAN, Pirates in Batavia, Euro-Mir, Poseidon\n- Solo funciona DENTRO del parque\n\nCOMIDA:\n- Food Loop (Luxemburgo): comida baja en mini montaña rusa haciendo loopings. Muy vistoso, hay cola pero avanza rápido\n- Se puede entrar comida y bebida (zonas picnic)\n- Agua grifo potable → llevar cantimplora",
+        "history": "HORARIOS 2026:\n- Verano (28 mar - 25 sep): 9:00-18:00 mínimo\n- Halloween (26 sep - 1 nov): 9:00-18:00\n- Invierno (28 nov - 9 ene): 11:00-19:00\n\nPARKING: 10€/día. Abre 7:55 (verano) / 9:00 (invierno). NO pernoctar.\n\nIDIOMAS: Alemán, francés, inglés. NO español. Personal habla inglés.\n\nWIFI gratis en todo el parque.",
+        "recommendation": "APP OFICIAL (descargar antes): Virtual Line + mapa interactivo + tiempos espera en tiempo real. MUY ÚTIL.\n\nCON NIÑOS:\n- Atracciones repartidas por TODO el parque (no zona infantil aislada)\n- <120cm: atracciones suaves | 120-130cm: más opciones | +140cm: TODO\n- Baby Switch: adulto espera con niño, otro se monta, intercambian SIN repetir cola\n- Single Rider en ARTHUR, Blue Fire, Eurosat, Voletarium, WODAN\n- Alquiler carritos: 5€/día en entrada (no reclinables)\n\nATRACCIONES AGUA: llevar chubasquero/poncho. Secadores de pago a la salida.\n\nPERROS permitidos (atados, no suben atracciones).",
+        "officialWeb": "https://www.europapark.de/"
       }
     ]
   },
@@ -357,7 +360,11 @@
         "name": "Europa-Park Día 2",
         "category": "Parque Atracciones",
         "img": "https://www.europapark.de/sites/default/files/styles/gallery_zoom/public/2023-03/silver-star-01.jpg",
-        "desc": "Área de Croacia (Voltron) y resto del parque."
+        "desc": "Segundo día para completar áreas restantes y repetir favoritas. Con 2 días se ve bien sin prisas.",
+        "schedule": "ÁREAS DÍA 2:\n- Alemania, España, Holanda, Escandinavia, Inglaterra\n- WODAN Timburcoaster (montaña rusa madera - USAR VIRTUAL LINE)\n- Blue Fire (lanzamiento 0-100km/h en 2.5s)\n- Silver Star (73m altura, 130km/h)\n- Euro-Mir (spinning coaster)\n- Voltron (nueva 2024)\n\nMONTAÑAS RUSAS TOP:\n- Voltron: la más nueva, Virtual Line siempre\n- WODAN: madera, muy intensa\n- Blue Fire: lanzamiento brutal\n- Silver Star: la más alta de Europa\n\nESPECTÁCULOS: Repartidos por el parque, fáciles de seguir aunque no hables alemán.",
+        "history": "Fundado 1975 por familia Mack (fabricantes históricos de atracciones). Empezó como escaparate para mostrar creaciones a clientes. Sigue siendo gestión familiar.\n\nCrecimiento orgánico añadiendo áreas y hoteles. En 2019 añadieron Rulantica (parque acuático).\n\nDistinto a otros parques: no construido de golpe, evolución constante.",
+        "recommendation": "RESTAURANTES POR ÁREA:\n- Cada zona tiene comida temática del país\n- Escandinavia: salmón\n- Alemania: salchichas, pretzels\n- Precios no baratos pero razonables vs otros parques\n\nZONAS TRANQUILAS para descansar:\n- Jardín Castillo Balthasar (Alemania)\n- Junto a WODAN\n- Espacios amplios sin agobios\n\nTRUCO PORTAVENTURA: Con pase temporada PortAventura → entrada 1 día gratis (pedir en mostrador información).",
+        "officialWeb": "https://www.europapark.de/"
       }
     ]
   },
