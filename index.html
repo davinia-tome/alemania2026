@@ -696,7 +696,11 @@ function openActivity(dayIdx, actIdx) {
     if (gastroSection && gastroContent) {
         if (act.recommendation) {
             gastroSection.classList.remove('hidden');
-            if (act.restoLink) {
+            // Separar por puntos y crear lista
+            const items = act.recommendation.split(/\.\s+/).filter(i => i.trim());
+            if (items.length > 1) {
+                gastroContent.innerHTML = '<ul class="list-disc pl-5 space-y-1">' + items.map(i => `<li>${i.trim().replace(/\.?$/, '')}</li>`).join('') + '</ul>';
+            } else if (act.restoLink && act.restoLink !== '#') {
                 gastroContent.innerHTML = `
                     <a href="${act.restoLink}" target="_blank" class="hover:text-amber-600 transition-colors flex items-center gap-1 underline decoration-dotted">
                         ${act.recommendation} <span class="text-[8px]">↗</span>
