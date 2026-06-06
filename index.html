@@ -141,6 +141,7 @@
           <a href="#itinerario" class="text-slate-600 hover:text-amber-600 transition-colors"
             >Itinerario</a
           >
+          <a href="#informacion" class="text-slate-600 hover:text-amber-600 transition-colors">Información</a>
         </div>
       </div>
     </nav>
@@ -277,6 +278,28 @@
       <div id="itinerary-list" class="max-w-4xl mx-auto space-y-6 px-6"></div>
     </section>
 
+    <!-- Sección de Información / Notas -->
+    <section id="informacion" class="py-12 max-w-6xl mx-auto px-6">
+      <div class="text-center mb-8">
+        <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tighter italic underline decoration-amber-400 decoration-4 underline-offset-8">
+          Información
+        </h2>
+      </div>
+      <div class="section-card p-8">
+        <textarea
+          id="notas-textarea"
+          class="w-full h-64 p-4 border border-slate-300 rounded-xl text-slate-800 resize-y focus:outline-none focus:ring-2 focus:ring-amber-400"
+          placeholder="Escribe tus notas aquí..."></textarea>
+        <div class="flex justify-end mt-4">
+          <button
+            onclick="guardarNotas()"
+            class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold py-2 px-6 rounded-full transition-colors">
+            Guardar notas
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- Modal de Actividad -->
     <div
       id="activity-modal"
@@ -396,12 +419,17 @@
       // Configuración del Gist para persistencia
       const GIST_ID = '59e814efbba6f6eb239572355789de6c';
       let rawExpenses = [];
+      let notas = '';
 
       async function loadExpenses() {
         try {
           const res = await fetch(`https://api.github.com/gists/${GIST_ID}`);
           const gist = await res.json();
           rawExpenses = JSON.parse(gist.files['expenses.json'].content);
+          if (gist.files['notas.txt']) {
+            notas = gist.files['notas.txt'].content;
+            document.getElementById('notas-textarea').value = notas;
+          }
           updateExpenseStats();
         } catch (e) { console.error('Error cargando gastos:', e); }
       }
@@ -445,6 +473,25 @@
             })
           });
         } catch (e) { console.error('Error guardando gastos:', e); }
+      }
+
+      async function guardarNotas() {
+        const token = getToken();
+        if (!token) return;
+        notas = document.getElementById('notas-textarea').value;
+        try {
+          await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+            method: 'PATCH',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              files: { 'notas.txt': { content: notas } }
+            })
+          });
+          alert('Notas guardadas');
+        } catch (e) { console.error('Error guardando notas:', e); alert('Error al guardar'); }
       }
 
       let itineraryData = [];
