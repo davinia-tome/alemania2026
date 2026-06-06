@@ -423,7 +423,7 @@
   {
     "day": "17 Jul",
     "weekday": "Vie",
-    "ruta": "Stuttgart → Schwäbisch Hall → Rothenburg",
+    "ruta": "Stuttgart → Rothenburg",
     "km": 145,
     "mapLink": "https://www.google.com/maps/dir/a%26o+Hostel+Stuttgart+City,+Rosensteinstra%C3%9Fe+14%2F16,+70191+Stuttgart,+Alemania/Hotel+Merian+Rothenburg,+Ansbacher+Str.+42,+91541+Rothenburg+ob+der+Tauber,+Alemania/@49.0801639,9.3644782,101721m/data=!3m2!1e3!4b1!4m14!4m13!1m5!1m1!1s0x4799c4d4f8bc2769:0x2de8825491b50e9a!2m2!1d9.1914938!2d48.7933066!1m5!1m1!1s0x47988fb9a0058397:0x37aa9d03817fa3a6!2m2!1d10.1921576!2d49.3751918!3e0?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
     "hotel": {
@@ -443,12 +443,6 @@
         "img": "https://www.mercedes-benz.com/assets/art-and-culture/mercedes-benz-museum/museum/01-mercedes-benz-museum-header-5120x2880.jpeg",
         "desc": "Imprescindible para los amantes del motor.",
         "schedule": "09:00 - Visita Museo"
-      },
-      {
-        "name": "Schwäbisch Hall",
-        "category": "Pueblo",
-        "img": "https://www.schwaebischhall.de/fileadmin/_processed_/a/8/csm_Schwaebisch_Hall_Marktplatz_Kirche_d7e8f8e8e8.jpg",
-        "desc": "Plaza mayor y puentes cubiertos."
       },
       {
         "name": "Rothenburg ob der Tauber",
