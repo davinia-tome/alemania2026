@@ -97,7 +97,7 @@
   {
     "day": "09 Jul",
     "weekday": "Jue",
-    "ruta": "Bermatingen → Friedrichshafen → Todtnau → Schönwald",
+    "ruta": "Bermatingen → Todtnau → Schönwald",
     "km": 145,
     "hotel": {
       "name": "Condo en Schönwald (Ludwig-Uhland-Str. 17)",
@@ -109,7 +109,7 @@
       "nights": "3",
       "breakfast": false
     },
-    "mapLink": "https://www.google.com/maps/dir/Bermatingen/Friedrichshafen/Todtnau/Schönwald",
+    "mapLink": "https://www.google.com/maps/dir/Bermatingen/Todtnau/Schönwald",
     "actividades": [
       {
         "name": "Lago Titisee",
