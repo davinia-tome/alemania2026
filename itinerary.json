@@ -594,7 +594,7 @@
         "desc": "Corazón de Múnich. Ciudad reconstruida tras WWII (muy bombardeada). Child-friendly: rampas, parques, zonas peatonales. Kindercafes con cambiadores y zonas juego.",
         "recommendation": "Café Frischhut (Prälat-Zistl-Str. 8): Schmalznudel, pedir 'frisch aus dem Fett'. Llevar efectivo. En Viktualienmarkt (cerrado domingos): Leberkäse caliente, Krustenbraten en Schlemmermeyer, Caspar Plautz (patatas asadas rellenas y mejor Obatzda), Sababa para falafel. PROBAR: Brezels (trenzas saladas), salchichas blancas Weißwurst con mostaza dulce, Strudel de manzana. Cervezas locales: Löwenbräu, Spatenbräu, Hofbräu, Paulaner, Hacker-Pschorr.",
         "restoLink": "#",
-        "schedule": "RUTA CENTRO:\n1. Karlsplatz - Fuente frente a Justizpalast, inicio zona peatonal\n2. Karlstor - Puerta antigua muralla\n3. Neuhauserstraße - Calle animada hasta Marienplatz\n4. Marienplatz - Corazón social y sentimental\n5. Neus Rathaus - Palacio neogótico icónico. CARRILLÓN: 11:00 y 17:00 (figuras torneos caballeros y bailes). Niños alucinan\n6. Altes Rathaus - Ayuntamiento viejo, torre con Museo del Juguete\n7. Viktualienmarkt - Antiguo mercado medieval, hoy paraíso foodie. Biergartens",
+        "schedule": "RUTA CENTRO:\n1. Karlsplatz - Fuente frente a Justizpalast, inicio zona peatonal\n2. Karlstor - Puerta antigua muralla\n3. Neuhauserstraße - Calle animada hasta Marienplatz\n4. Marienplatz - Corazón social y sentimental\n5. Neus Rathaus - Palacio neogótico. CARRILLÓN: 11:00, 12:00 y 17:00 (mar-oct). Boda medieval + baile. SUBIR TORRE (ascensor): vistas casco antiguo\n6. Alter Peter (Iglesia San Pedro) - 299 escalones pero MEJORES VISTAS panorámicas de la ciudad\n7. Altes Rathaus - Ayuntamiento viejo, torre con Museo del Juguete\n8. Viktualienmarkt - Mercado desde 1807, 140 puestos. Paraíso foodie, biergartens",
         "history": "Capital de Baviera, región industrial más rica de Europa. Católica, culta, industriosa pero también festiva. Muy reconstruida tras intensos bombardeos WWII. Oktoberfest de mediados septiembre a principios octubre.",
         "mapLink": "https://www.google.com/maps/d/u/0/viewer?mid=1-BF0_PCZgA_cep1W8YQFr5FiJ4-Y05kd&femb=1&ll=48.17435447947711%2C11.564010749999989&z=12"
       },
@@ -603,7 +603,7 @@
         "category": "Ciencia",
         "img": "https://b3751403.smushcdn.com/3751403/wp-content/uploads/2024/12/Aviation-DEUTSCHES-MUSEUM.webp?lossy=0&strip=1&webp=1",
         "desc": "Museo ciencia y tecnología más grande del mundo. En isla sobre río Isar. Inaugurado 1925. Miles de objetos desde antigüedad hasta presente. MUY INTERACTIVO para niños.",
-        "schedule": "DESTACADOS:\n- Primer avión hermanos Wright\n- Primer automóvil Karl Benz\n- Submarino U1\n- Secciones: transporte, minería, astronomía, química, física, informática\n- Simuladores, pantallas táctiles\n- Planetarium (comprar ticket entrada para proyecciones cada 2h)\n\nTIEMPO: Mínimo mañana o tarde completa (imposible verlo todo)",
+        "schedule": "DESTACADOS:\n- Primer avión hermanos Wright\n- Primer automóvil Karl Benz\n- Submarino U1\n- Secciones: transporte, minería, astronomía, química, física, informática\n- Simuladores, pantallas táctiles, demostraciones científicas EN DIRECTO\n- Planetarium (comprar ticket entrada para proyecciones cada 2h)\n\nTIEMPO: Mínimo mañana o tarde completa (imposible verlo todo)\n\nIDEAL para niños: aprendizaje + entretenimiento",
         "recommendation": "Precios asequibles. Reservar mínimo media jornada. Comprar ticket Planetarium al entrar."
       },
       {
@@ -620,6 +620,13 @@
         "category": "Ocio",
         "img": "https://www.olympiapark.de/fileadmin/_processed_/e/4/csm_Kino_am_Olympiasee_2019_Olympiapark_Muenchen_GmbH_5_1920x1080_01_5b3b3b3b3b.jpg",
         "desc": "Cine al aire libre junto al lago del parque olímpico. Se puede llevar comida propia y sentarse en el césped."
+      },
+      {
+        "name": "Castillo Nymphenburg",
+        "category": "Palacio",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Schloss_Nymphenburg_Munich.jpg/1200px-Schloss_Nymphenburg_Munich.jpg",
+        "desc": "Palacio de verano de los reyes de Baviera. Decoración de época interior. EXTERIOR: Museo de carrozas (antiguas caballerizas), jardines con palacetes rococó, baños estilo termas romanas, pagoda, ermita de la Magdalena.",
+        "recommendation": "Opcional si hay tiempo. Interesante para niños el museo de carrozas y los jardines."
       }
     ]
   },
