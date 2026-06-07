@@ -1237,7 +1237,7 @@ function openActivity(dayIdx, actIdx) {
         updateExpenseStats();
 
         // Handler para añadir gastos
-        document.getElementById('expense-form').addEventListener('submit', async (e) => {
+        const expForm = document.getElementById('expense-form'); if (expForm) expForm.addEventListener('submit', async (e) => {
           e.preventDefault();
           const desc = document.getElementById('exp-desc').value;
           const cat = document.getElementById('exp-cat').value;
