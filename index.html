@@ -357,11 +357,11 @@
 
         <!-- Filtros -->
         <div class="flex flex-wrap justify-center gap-2 mb-8">
-          <button onclick="filterPlatos('all')" class="gastro-filter active px-4 py-2 rounded-full bg-amber-400 text-slate-900 font-bold text-sm">Todos</button>
-          <button onclick="filterPlatos('salchichas')" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">🌭 Salchichas</button>
-          <button onclick="filterPlatos('principales')" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">🍲 Principales</button>
-          <button onclick="filterPlatos('dulces')" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">🍰 Dulces</button>
-          <button onclick="filterPlatos('imprescindibles')" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">⭐ Imprescindibles</button>
+          <button onclick="filterPlatos('all', event)" class="gastro-filter active px-4 py-2 rounded-full bg-amber-400 text-slate-900 font-bold text-sm">Todos</button>
+          <button onclick="filterPlatos('salchichas', event)" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">🌭 Salchichas</button>
+          <button onclick="filterPlatos('principales', event)" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">🍲 Principales</button>
+          <button onclick="filterPlatos('dulces', event)" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">🍰 Dulces</button>
+          <button onclick="filterPlatos('imprescindibles', event)" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">⭐ Imprescindibles</button>
         </div>
 
         <!-- Grid de platos -->
@@ -1245,12 +1245,12 @@ function openActivity(dayIdx, actIdx) {
         updateKmChart();
 
       // Filtrar platos de gastronomía
-      function filterPlatos(categoria) {
+      function filterPlatos(categoria, evt) {
         const cards = document.querySelectorAll('.plato-card');
         const buttons = document.querySelectorAll('.gastro-filter');
         
         buttons.forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
+        evt.target.classList.add('active');
         
         cards.forEach(card => {
           if (categoria === 'all' || card.dataset.cat.includes(categoria)) {
