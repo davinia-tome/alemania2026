@@ -603,7 +603,8 @@
         "schedule": "Restaurante histórico junto al río Pegnitz. Salchichas Nürnberger pequeñas (6-8cm) a la parrilla de leña de haya. Platos de peltre en forma de corazón.",
         "history": "Uno de los restaurantes más antiguos de Núremberg. Receta de salchichas Nürnberger protegida desde 1313."
       }
-    ]
+    ],
+    "transport": "AEROPUERTO → ALOJAMIENTO (Westendstraße 170, Laim)\n\nRUTA ÓPTIMA (sin transbordo):\n- S8 desde Flughafen München → Laim (directo)\n- Caminar 10 min hasta alojamiento\n- Duración total: ~50 min\n\nBILLETE RECOMENDADO:\nGruppen-Tageskarte Gesamtnetz (día grupal todas zonas) ~25€\nVálido para los 4 (2 adultos + 2 niños)"
   },
   {
     "day": "21 Jul",
@@ -641,7 +642,7 @@
         "tips": "Precios asequibles. Reservar mínimo media jornada. Comprar ticket Planetarium al entrar."
       }
     ],
-    "transport": "TRANSPORTE PÚBLICO EN MÚNICH (MVV/MVG):\n\nTIPOS:\n- U-Bahn (metro): 4:30-1:30h (fines semana hasta 2:00)\n- S-Bahn (cercanías): mismo horario\n- Tranvía y Bus: mismo horario\n\nBILLETES:\n- Sencillo: varía según zonas (NO es barato)\n- Bono 10 viajes: compartible entre varias personas\n- Día individual: ilimitado hasta 6am día siguiente\n- Día grupal: hasta 5 personas, válido hasta 6am\n- Niños 6-14 años: tarifa reducida\n\nVALIDAR BILLETES:\n- Sellar ANTES de subir en máquinas expendedoras\n- Ya validados automáticamente: los comprados en tranvías/buses y billetes aeropuerto-ciudad\n\nIR AL AEROPUERTO (MUC):\n- S-Bahn líneas S1 y S8 conectan centro con aeropuerto\n- Duración: ~40-45 minutos desde Hauptbahnhof o Marienplatz\n- Frecuencia: cada 10-20 minutos\n- Billete: zona M-5 (aeropuerto está en zona 5)\n- Opción económica: billete día grupal si sois varios\n- Lufthansa Express Bus: alternativa desde Hauptbahnhof\n\nCONSEJO: Comprar billete \"Airport-City-Day-Ticket\" = transporte todo el día + aeropuerto\n\nMAPAS PDF:\n- Metro: https://www.mvg.de/dam/mvg-en/downloads/mvg-tourist-information-flyer.pdf\n- S-Bahn: https://www.mvv-muenchen.de/fileadmin/mediapool/03-Plaene_Bahnhoefe/Netzplaene/MVV_Netzplan_S_U_R.pdf\n\nWeb oficial: https://www.mvv-muenchen.de/en/tickets-and-fares/"
+    "transport": "ALOJAMIENTO ↔ CENTRO MÚNICH\n\nRUTA:\n- Caminar a estación Laim (10 min)\n- S-Bahn (cualquier línea) → Marienplatz\n- Duración: ~20 min\n\nBILLETE RECOMENDADO:\nGruppen-Tageskarte Innenraum (día grupal zona interior) ~15€\n\nINFO GENERAL TRANSPORTE MÚNICH:\n- U-Bahn/S-Bahn/Tranvía/Bus: 4:30-1:30h (fines semana hasta 2:00)\n- Validar billete ANTES de subir\n- Gruppen-Tageskarte = hasta 5 personas, mejor para familias\n- Válido hasta 6:00 del día siguiente\n- Niños <6 años: GRATIS"
   },
   {
     "day": "22 Jul",
@@ -667,7 +668,8 @@
         "recommendation": "Café Frischhut (Prälat-Zistl-Str. 8): Schmalznudel, pedir 'frisch aus dem Fett'. Llevar efectivo. En Viktualienmarkt (cerrado domingos): Leberkäse caliente, Krustenbraten en Schlemmermeyer, Caspar Plautz (patatas asadas rellenas y el mejor Obatzda), Sababa para falafel.",
         "restoLink": "#"
       }
-    ]
+    ],
+    "transport": "ALOJAMIENTO ↔ DEUTSCHES MUSEUM\n\nRUTA:\n- Caminar a estación Laim (10 min)\n- S-Bahn → Isartor\n- Caminar 5 min al museo\n- Duración total: ~25 min\n\nBILLETE RECOMENDADO:\nGruppen-Tageskarte Innenraum ~15€"
   },
   {
     "day": "23 Jul",
@@ -695,6 +697,7 @@
         "schedule": "09:00 - Desayuno\n11:30 - Salida al aeropuerto",
         "history": "Tradición bávara: Weißwurst (salchicha blanca) debe comerse ANTES de las 12h (antiguamente no había neveras). Se acompaña de Brezel y mostaza dulce."
       }
-    ]
+    ],
+    "transport": "ALOJAMIENTO → AEROPUERTO\n\nRUTA ÓPTIMA:\n- Caminar a estación Laim (10 min)\n- S8 directo → Flughafen München\n- Duración: ~45 min\n\nBILLETE RECOMENDADO:\nGruppen-Tageskarte Gesamtnetz ~25€\n\nCONSEJO: Salir con 2h+ de antelación para facturar"
   }
 ]
