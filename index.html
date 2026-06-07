@@ -174,6 +174,7 @@
             class="text-lg font-black text-slate-800 uppercase italic mb-6 flex items-center gap-2">
             <span>💸</span> Añadir Gasto
           </h3>
+          <p class="text-xs text-slate-500 mb-3">Nuevos: Lindau/Meersburg (Felchen), Triberg (Schwarzwälder Schinken), Füssen (Zwetschgendatschi)</p>
           <form id="expense-form" class="space-y-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -243,6 +244,7 @@
           <h3 class="text-lg font-black text-slate-800 uppercase italic mb-4">
             Estado Presupuesto
           </h3>
+          <p class="text-xs text-slate-500 mb-3">Nuevos: Lindau/Meersburg (Felchen), Triberg (Schwarzwälder Schinken), Füssen (Zwetschgendatschi)</p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div class="chart-container"><canvas id="budgetChart"></canvas></div>
             <div class="space-y-4 text-center">
@@ -267,6 +269,7 @@
           <h3 class="text-lg font-black text-slate-800 uppercase italic flex items-center gap-2">
             <span>🚗</span> Análisis de Kilometraje por Etapa
           </h3>
+          <p class="text-xs text-slate-500 mb-3">Nuevos: Lindau/Meersburg (Felchen), Triberg (Schwarzwälder Schinken), Füssen (Zwetschgendatschi)</p>
           <div class="bg-amber-50 px-4 py-2 rounded-2xl border border-amber-100">
             <p class="text-[10px] font-bold text-amber-800 uppercase tracking-widest">
               Total Ruta: <span id="totalKm" class="text-lg font-black ml-1">0</span> km
@@ -308,11 +311,13 @@
       <div class="section-card p-8">
         <div class="mb-6">
           <h3 class="font-bold text-slate-800 mb-2">🛝 Comparativa de toboganes alpinos</h3>
+          <p class="text-xs text-slate-500 mb-3">Nuevos: Lindau/Meersburg (Felchen), Triberg (Schwarzwälder Schinken), Füssen (Zwetschgendatschi)</p>
           <a href="https://gemini.google.com/app/cee8cd9ef14543fb" target="_blank" class="text-amber-600 hover:text-amber-700 underline">Ver comparativa</a>
         </div>
         <hr class="border-slate-300 mb-6">
         <div class="mb-6">
           <h3 class="font-bold text-slate-800 mb-2">🎢 Precios parques (4 adultos + 2 niños 6 y 10 años)</h3>
+          <p class="text-xs text-slate-500 mb-3">Nuevos: Lindau/Meersburg (Felchen), Triberg (Schwarzwälder Schinken), Füssen (Zwetschgendatschi)</p>
           <div class="text-slate-600 text-sm space-y-2">
             <p><strong>Europa-Park 2 días:</strong> ~764€ (adultos 135€×4 + niños 112€×2)</p>
             <p><strong>Rulantica 1 día:</strong> ~266€ (adultos 45€×4 + niños 43€×2)</p>
@@ -573,15 +578,86 @@
             </div>
           </div>
 
+
+          <!-- NUEVOS PLATOS -->
+          <div class="plato-card salchichas" data-cat="salchichas">
+            <img src="img/platos/wurstsalat.jpeg" alt="Wurstsalat" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Wurstsalat</h4>
+              <p class="text-xs text-slate-600 mt-1">Ensalada fría de salchichas en vinagreta. Refrescante en verano.</p>
+              <p class="mt-2 text-xs text-slate-500">📍 Cualquier Biergarten</p>
+            </div>
+          </div>
+
+          <div class="plato-card principales imprescindibles" data-cat="principales imprescindibles">
+            <img src="img/platos/schweinshaxe.jpeg" alt="Schweinshaxe" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">⭐ Schweinshaxe</h4>
+              <p class="text-xs text-slate-600 mt-1">Codillo de cerdo con corteza MUY crujiente. Contundente.</p>
+              <a href="https://www.google.com/maps/search/Hofbräuhaus+München+Platzl" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Hofbräuhaus, Múnich
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card principales" data-cat="principales">
+            <img src="img/platos/bodenseefelchen.jpeg" alt="Bodensee Felchen" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Bodensee Felchen</h4>
+              <p class="text-xs text-slate-600 mt-1">Pescado blanco del lago Constanza. Fresco y delicado.</p>
+              <a href="https://www.google.com/maps/search/Restaurant+Meersburg+Seepromenade" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Restaurantes lago - Lindau/Meersburg
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card principales" data-cat="principales">
+            <img src="img/platos/hirschbraten.jpeg" alt="Hirschbraten" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Hirschbraten</h4>
+              <p class="text-xs text-slate-600 mt-1">Asado de ciervo con bayas de enebro. Caza de Selva Negra.</p>
+              <p class="mt-2 text-xs text-slate-500">📍 Restaurantes de montaña - Selva Negra</p>
+            </div>
+          </div>
+
+          <div class="plato-card principales" data-cat="principales">
+            <img src="img/platos/schwarzwalderschinken.jpeg" alt="Schwarzwälder Schinken" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Schwarzwälder Schinken</h4>
+              <p class="text-xs text-slate-600 mt-1">Jamón ahumado tipo prosciutto. El auténtico de Selva Negra.</p>
+              <a href="https://www.google.com/maps/search/Metzgerei+Triberg" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Carnicerías - Triberg/Gengenbach
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card principales" data-cat="principales">
+            <img src="img/platos/bibbeleskas.jpeg" alt="Bibbeleskäs" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Bibbeleskäs</h4>
+              <p class="text-xs text-slate-600 mt-1">Queso fresco con hierbas. Se come con patatas asadas.</p>
+              <p class="mt-2 text-xs text-slate-500">📍 Restaurantes tradicionales - Friburgo</p>
+            </div>
+          </div>
+
+          <div class="plato-card dulces" data-cat="dulces">
+            <img src="img/platos/zwetschgendatschi.jpeg" alt="Zwetschgendatschi" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Zwetschgendatschi</h4>
+              <p class="text-xs text-slate-600 mt-1">Tarta de ciruelas sobre masa fina. Típica de Suabia.</p>
+              <p class="mt-2 text-xs text-slate-500">📍 Cafeterías - Füssen/Nesselwang</p>
+            </div>
+          </div>
         </div>
 
         <!-- Resumen por ciudad -->
         <div class="mt-8 p-6 bg-white rounded-2xl shadow-sm border border-amber-200">
           <h3 class="font-bold text-slate-800 mb-4">📍 Resumen - Imprescindibles por ciudad</h3>
+          <p class="text-xs text-slate-500 mb-3">Nuevos: Lindau/Meersburg (Felchen), Triberg (Schwarzwälder Schinken), Füssen (Zwetschgendatschi)</p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div>
               <p class="font-semibold text-amber-700">Múnich</p>
-              <p class="text-slate-600">Café Frischhut (Schmalznudel), Viktualienmarkt (Weißwurst, Obatzda), Hofbräuhaus</p>
+              <p class="text-slate-600">Café Frischhut (Schmalznudel), Viktualienmarkt (Weißwurst), Hofbräuhaus (Schweinshaxe, Obatzda)</p>
             </div>
             <div>
               <p class="font-semibold text-amber-700">Núremberg</p>
