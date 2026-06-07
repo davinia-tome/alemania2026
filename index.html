@@ -111,6 +111,25 @@
       .nav-arrow.next {
         right: -20px;
       }
+        /* Estilos gastronomía */
+      .plato-card {
+        background: white;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .plato-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      }
+      .plato-card.hidden {
+        display: none;
+      }
+      .gastro-filter.active {
+        background: #fbbf24 !important;
+        color: #1e293b !important;
+      }
     </style>
   </head>
 
@@ -142,6 +161,7 @@
             >Itinerario</a
           >
           <a href="#informacion" class="text-slate-600 hover:text-amber-600 transition-colors">Información</a>
+          <a href="#gastronomia" class="text-slate-600 hover:text-amber-600 transition-colors">Gastronomía</a>
         </div>
       </div>
     </nav>
@@ -317,7 +337,277 @@
       </div>
     </section>
 
+
     <!-- Modal de Actividad -->
+
+    <!-- Sección de Gastronomía -->
+    <section id="gastronomia" class="py-12 bg-amber-50/50 border-y border-amber-200">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-8">
+          <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tighter italic underline decoration-amber-400 decoration-4 underline-offset-8">
+            🍽️ Gastronomía
+          </h2>
+          <p class="text-slate-600 mt-4">Platos típicos de Baviera y Selva Negra - ¡y dónde probarlos!</p>
+        </div>
+
+        <!-- Filtros -->
+        <div class="flex flex-wrap justify-center gap-2 mb-8">
+          <button onclick="filterPlatos('all')" class="gastro-filter active px-4 py-2 rounded-full bg-amber-400 text-slate-900 font-bold text-sm">Todos</button>
+          <button onclick="filterPlatos('salchichas')" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">🌭 Salchichas</button>
+          <button onclick="filterPlatos('principales')" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">🍲 Principales</button>
+          <button onclick="filterPlatos('dulces')" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">🍰 Dulces</button>
+          <button onclick="filterPlatos('imprescindibles')" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">⭐ Imprescindibles</button>
+        </div>
+
+        <!-- Grid de platos -->
+        <div id="platos-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+          <!-- IMPRESCINDIBLES -->
+          <div class="plato-card imprescindibles dulces" data-cat="imprescindibles dulces">
+            <img src="img/platos/schmalznudel.jpeg" alt="Schmalznudel" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">⭐ Schmalznudel</h4>
+              <p class="text-xs text-slate-600 mt-1">Donut bávaro. Pedir "frisch aus dem Fett".</p>
+              <a href="https://www.google.com/maps/place/Schmalznudel+-+Cafe+Frischhut/@48.1352,11.5755,17z" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Café Frischhut, Múnich
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card imprescindibles salchichas" data-cat="imprescindibles salchichas">
+            <img src="img/platos/nurnbergerBratwurst.jpeg" alt="Nürnberger Bratwurst" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">⭐ Nürnberger Bratwurst</h4>
+              <p class="text-xs text-slate-600 mt-1">Salchichas pequeñas (6-8cm) a la parrilla. Desde 1312.</p>
+              <a href="https://www.google.com/maps/place/Bratwursth%C3%A4usle/@49.4550,11.0767,17z" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Bratwursthäusle, Núremberg
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card imprescindibles dulces" data-cat="imprescindibles dulces">
+            <img src="img/platos/schwarzwalderkirschtorte.jpeg" alt="Schwarzwälder Kirschtorte" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">⭐ Tarta Selva Negra</h4>
+              <p class="text-xs text-slate-600 mt-1">Chocolate, cerezas y nata. ¡La auténtica!</p>
+              <a href="https://www.google.com/maps/place/Gasthaus+Bischenberg/@48.6283,8.1089,17z" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Gasthaus Bischenberg, Sasbachwalden
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card imprescindibles dulces" data-cat="imprescindibles dulces">
+            <img src="img/platos/schneeballen.jpeg" alt="Schneeballen" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">⭐ Schneeballen</h4>
+              <p class="text-xs text-slate-600 mt-1">Bolas de nieve. Masa frita con azúcar o chocolate.</p>
+              <a href="https://www.google.com/maps/place/Diller+Schneeballentr%C3%A4ume/@49.3773,10.1778,17z" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Diller, Rothenburg
+              </a>
+            </div>
+          </div>
+
+          <!-- SALCHICHAS -->
+          <div class="plato-card salchichas" data-cat="salchichas">
+            <img src="img/platos/weisswurst.jpeg" alt="Weißwurst" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Weißwurst</h4>
+              <p class="text-xs text-slate-600 mt-1">Salchicha blanca. ¡Comer ANTES de las 12h!</p>
+              <a href="https://www.google.com/maps/place/Viktualienmarkt/@48.1351,11.5763,17z" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Viktualienmarkt, Múnich
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card salchichas" data-cat="salchichas">
+            <img src="img/platos/langerote.jpeg" alt="Lange Rote" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Lange Rote</h4>
+              <p class="text-xs text-slate-600 mt-1">Salchicha roja larga de Friburgo. SIN cebolla.</p>
+              <a href="https://www.google.com/maps/place/M%C3%BCnsterplatz,+Freiburg/@47.9959,7.8522,17z" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Münstermarkt, Friburgo
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card salchichas" data-cat="salchichas">
+            <img src="img/platos/currywurst.jpeg" alt="Currywurst" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Currywurst</h4>
+              <p class="text-xs text-slate-600 mt-1">Salchicha con curry y patatas fritas.</p>
+              <p class="mt-2 text-xs text-slate-500">📍 Cualquier Imbiss (puesto callejero)</p>
+            </div>
+          </div>
+
+          <div class="plato-card salchichas" data-cat="salchichas">
+            <img src="img/platos/landjager.jpeg" alt="Landjäger" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Landjäger</h4>
+              <p class="text-xs text-slate-600 mt-1">Embutido seco. Perfecto snack de coche.</p>
+              <p class="mt-2 text-xs text-slate-500">📍 Supermercados EDEKA/REWE</p>
+            </div>
+          </div>
+
+          <!-- PRINCIPALES -->
+          <div class="plato-card principales" data-cat="principales">
+            <img src="img/platos/maultaschen.jpeg" alt="Maultaschen" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Maultaschen</h4>
+              <p class="text-xs text-slate-600 mt-1">Raviolis gigantes de Stuttgart.</p>
+              <a href="https://www.google.com/maps/search/Maultaschenh%C3%A4usle+Stuttgart/@48.7758,9.1829,14z" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Maultaschenhäusle, Stuttgart
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card principales" data-cat="principales">
+            <img src="img/platos/kasspatzle.jpeg" alt="Kässpätzle" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Kässpätzle</h4>
+              <p class="text-xs text-slate-600 mt-1">Pasta con queso y cebolla crujiente.</p>
+              <a href="https://www.google.com/maps/search/S'Wirtshaus+Oberammergau/@47.5972,11.0664,15z" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 S'Wirtshaus, Oberammergau
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card principales" data-cat="principales">
+            <img src="img/platos/flammkuchen.jpeg" alt="Flammkuchen" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Flammkuchen</h4>
+              <p class="text-xs text-slate-600 mt-1">Pizza fina con nata, cebolla y bacon.</p>
+              <a href="https://www.google.com/maps/place/Winzerst%C3%BCble/@48.4039,8.0142,17z" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Winzerstüble, Gengenbach
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card principales" data-cat="principales">
+            <img src="img/platos/schweinbraten.jpeg" alt="Schweinebraten" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Schweinebraten</h4>
+              <p class="text-xs text-slate-600 mt-1">Asado de cerdo con Knödel.</p>
+              <a href="https://www.google.com/maps/place/Hofbr%C3%A4uhaus+M%C3%BCnchen/@48.1376,11.5799,17z" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Hofbräuhaus, Múnich
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card principales" data-cat="principales">
+            <img src="img/platos/leberkase.jpeg" alt="Leberkäse" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Leberkäse</h4>
+              <p class="text-xs text-slate-600 mt-1">Pastel de carne caliente en panecillo.</p>
+              <a href="https://www.google.com/maps/place/Viktualienmarkt/@48.1351,11.5763,17z" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Schlemmermeyer, Viktualienmarkt
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card principales" data-cat="principales">
+            <img src="img/platos/schnitzel.jpeg" alt="Schnitzel" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Schnitzel</h4>
+              <p class="text-xs text-slate-600 mt-1">Escalope empanado con limón.</p>
+              <p class="mt-2 text-xs text-slate-500">📍 Cualquier Gasthaus tradicional</p>
+            </div>
+          </div>
+
+          <!-- DULCES -->
+          <div class="plato-card dulces" data-cat="dulces">
+            <img src="img/platos/lebkuchen.jpeg" alt="Lebkuchen" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Lebkuchen</h4>
+              <p class="text-xs text-slate-600 mt-1">Galleta especiada de Núremberg.</p>
+              <a href="https://www.google.com/maps/search/Lebkuchen+Schmidt+N%C3%BCrnberg/@49.4521,11.0767,15z" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Lebkuchen Schmidt, Núremberg
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card dulces" data-cat="dulces">
+            <img src="img/platos/apfelstrudel.jpeg" alt="Apfelstrudel" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Apfelstrudel</h4>
+              <p class="text-xs text-slate-600 mt-1">Strudel de manzana con canela.</p>
+              <p class="mt-2 text-xs text-slate-500">📍 Cualquier Café tradicional</p>
+            </div>
+          </div>
+
+          <div class="plato-card dulces" data-cat="dulces">
+            <img src="img/platos/kaiserschmarrn.jpeg" alt="Kaiserschmarrn" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Kaiserschmarrn</h4>
+              <p class="text-xs text-slate-600 mt-1">Tortita del Emperador troceada.</p>
+              <p class="mt-2 text-xs text-slate-500">📍 Refugios de montaña alpinos</p>
+            </div>
+          </div>
+
+          <!-- OTROS -->
+          <div class="plato-card principales" data-cat="principales">
+            <img src="img/platos/obatzda.jpeg" alt="Obatzda" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Obatzda</h4>
+              <p class="text-xs text-slate-600 mt-1">Crema de queso con pimentón para untar.</p>
+              <a href="https://www.google.com/maps/place/Hofbr%C3%A4uhaus+M%C3%BCnchen/@48.1376,11.5799,17z" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Hofbräuhaus o Biergarten, Múnich
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card principales" data-cat="principales">
+            <img src="img/platos/bretzel.jpeg" alt="Bretzel" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Bretzel</h4>
+              <p class="text-xs text-slate-600 mt-1">Pan trenzado. El de Stuttgart es diferente.</p>
+              <p class="mt-2 text-xs text-slate-500">📍 Cualquier panadería (Bäckerei)</p>
+            </div>
+          </div>
+
+          <div class="plato-card imprescindibles" data-cat="imprescindibles">
+            <img src="img/platos/apfelschorle.jpeg" alt="Apfelschorle" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">⭐ Apfelschorle</h4>
+              <p class="text-xs text-slate-600 mt-1">Zumo de manzana con gas. ¡Favorito de los niños!</p>
+              <p class="mt-2 text-xs text-slate-500">📍 En todos los restaurantes</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Resumen por ciudad -->
+        <div class="mt-8 p-6 bg-white rounded-2xl shadow-sm border border-amber-200">
+          <h3 class="font-bold text-slate-800 mb-4">📍 Resumen - Imprescindibles por ciudad</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <p class="font-semibold text-amber-700">Múnich</p>
+              <p class="text-slate-600">Café Frischhut (Schmalznudel), Viktualienmarkt (Weißwurst, Obatzda), Hofbräuhaus</p>
+            </div>
+            <div>
+              <p class="font-semibold text-amber-700">Núremberg</p>
+              <p class="text-slate-600">Bratwursthäusle (Bratwurst), Lebkuchen Schmidt</p>
+            </div>
+            <div>
+              <p class="font-semibold text-amber-700">Stuttgart</p>
+              <p class="text-slate-600">Maultaschenhäusle (Maultaschen)</p>
+            </div>
+            <div>
+              <p class="font-semibold text-amber-700">Rothenburg</p>
+              <p class="text-slate-600">Diller Schneeballenträume (Schneeballen)</p>
+            </div>
+            <div>
+              <p class="font-semibold text-amber-700">Friburgo</p>
+              <p class="text-slate-600">Münstermarkt (Lange Rote)</p>
+            </div>
+            <div>
+              <p class="font-semibold text-amber-700">Sasbachwalden</p>
+              <p class="text-slate-600">Gasthaus Bischenberg (Tarta Selva Negra)</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
     <div
       id="activity-modal"
       class="fixed inset-0 bg-slate-900/90 backdrop-blur-md z-[100] hidden flex items-center justify-center p-4">
