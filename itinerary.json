@@ -220,7 +220,8 @@
           "Leberkäse caliente",
           "Apfelschorle para los niños",
           "Agua y snacks"
-        ]
+        ],
+        "recommendation": "Supermercados EDEKA o REWE. Comprar: Landjäger (embutido ahumado, snack coche), Maultaschen (cena rápida), quesos locales, pan Brezel. Mercados semanales: productos frescos y locales."
       }
     ]
   },
@@ -420,25 +421,28 @@
         "name": "Cabaña WANDERHÜTTE SATTELEI",
         "category": "Gastro/Vistas",
         "img": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/20/31/d9/aussenansicht-wanderhutte.jpg?w=900&h=500&s=1",
-        "desc": "Comida con vistas increíbles en Sasbachwalden.",
-        "recommendation": "Vesperplatte (tabla de embutidos) en un entorno de montaña único.",
-        "restoLink": "https://share.google/61Ea61oMvtNyTq6ep"
+        "desc": "Cabaña de montaña típica Selva Negra. Parada para descanso y vistas.",
+        "recommendation": "Probar Flammkuchen (pizza alsaciana fina) o tarta casera. Buenas vistas de los viñedos.",
+        "restoLink": "https://share.google/61Ea61oMvtNyTq6ep",
+        "schedule": "Terraza con vistas panorámicas. Ambiente tradicional."
       },
       {
         "name": "Delikaaat!",
         "category": "Heladería",
         "img": "https://delikaaat.de/wp-content/uploads/2023/07/Inhaber3.jpg",
-        "desc": "Heladería, gofres, tartas",
-        "recommendation": "Para el postre",
-        "restoLink": "https://maps.app.goo.gl/Fj12L6cZvPQvdCmKA"
+        "desc": "Tienda gourmet local.",
+        "recommendation": "Buenos souvenirs gastronómicos: mermeladas, licores, especialidades de Selva Negra. Ideal para regalos.",
+        "restoLink": "https://maps.app.goo.gl/Fj12L6cZvPQvdCmKA",
+        "schedule": "Productos regionales de calidad."
       },
       {
         "name": "Stuttgart",
         "category": "Cultura",
         "img": "https://volare.volotea.com/wp-content/uploads/2023/04/stuttgart_city.jpg",
         "desc": "Jazzopen Stuttgart en la Schlossplatz (música al aire libre).",
-        "schedule": "-",
-        "recommendation": "Maultaschen: raviolis gigantes típicos. Inventados en el Monasterio de Maulbronn (Patrimonio UNESCO, visitable) para 'esconder' la carne en Cuaresma."
+        "schedule": "Capital de Baden-Württemberg. Si tenéis tiempo: paseo por Schlossplatz (plaza del palacio), Königstraße (calle comercial peatonal), Markthalle (mercado cubierto art nouveau de 1914).",
+        "recommendation": "Maultaschen: raviolis gigantes típicos. Inventados en el Monasterio de Maulbronn (Patrimonio UNESCO, visitable) para 'esconder' la carne en Cuaresma.",
+        "history": "Ciudad de los automóviles: sede de Mercedes-Benz y Porsche. Centro reconstruido tras WWII. Rodeada de colinas con viñedos."
       }
     ]
   },
