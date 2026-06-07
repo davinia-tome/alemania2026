@@ -168,9 +168,217 @@
 
     <!-- Dashboards de Gastos -->
     <section id="gastos" class="py-12 max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <div class="section-card p-8">
+          <h3
+            class="text-lg font-black text-slate-800 uppercase italic mb-6 flex items-center gap-2">
+            <span>💸</span> Añadir Gasto
+          </h3>
+          <p class="text-xs text-slate-500 mb-3">Nuevos: Lindau/Meersburg (Felchen), Triberg (Schwarzwälder Schinken), Füssen (Zwetschgendatschi)</p>
+          <form id="expense-form" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-2"
+                  >Concepto</label
+                >
+                <input
+                  type="text"
+                  id="exp-desc"
+                  placeholder="Ej: Cena Munich"
+                  class="expense-input"
+                  required />
+              </div>
+              <div>
+                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-2"
+                  >Categoría</label
+                >
+                <select id="exp-cat" class="expense-input">
+                  <option value="Transporte">Transporte</option>
+                  <option value="Alojamiento">Alojamiento</option>
+                  <option value="Comida">Comida</option>
+                  <option value="Ocio">Ocio</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-2"
+                >Importe (€)</label
+              >
+              <div class="flex gap-4">
+                <input
+                  type="number"
+                  id="exp-amount"
+                  step="0.01"
+                  placeholder="0.00"
+                  class="expense-input"
+                  required />
+                <button
+                  type="submit"
+                  class="bg-amber-500 hover:bg-amber-600 text-white font-black uppercase tracking-widest text-[10px] px-8 rounded-xl transition-all shadow-lg shadow-amber-200">
+                  Añadir
+                </button>
+              </div>
+            </div>
+          </form>
+          <div class="mt-8 border-t border-slate-100 pt-6">
+            <div class="flex justify-between items-center mb-4">
+              <h4
+                id="list-title"
+                class="text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                Movimientos
+              </h4>
+              <button
+                onclick="filterByCategory(null)"
+                id="btn-reset-filter"
+                class="hidden text-[9px] font-black text-amber-600 uppercase underline">
+                Ver todos
+              </button>
+            </div>
+            <div
+              id="expense-list"
+              class="space-y-2 max-h-32 overflow-y-auto custom-scrollbar pr-2"></div>
+          </div>
+        </div>
 
-          <!-- 🌭 SALCHICHAS -->
+        <div class="section-card p-8 text-center flex flex-col justify-between">
+          <h3 class="text-lg font-black text-slate-800 uppercase italic mb-4">
+            Estado Presupuesto
+          </h3>
+          <p class="text-xs text-slate-500 mb-3">Nuevos: Lindau/Meersburg (Felchen), Triberg (Schwarzwälder Schinken), Füssen (Zwetschgendatschi)</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="chart-container"><canvas id="budgetChart"></canvas></div>
+            <div class="space-y-4 text-center">
+              <div class="p-6 bg-slate-900 rounded-3xl text-white shadow-xl">
+                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">
+                  Total
+                </p>
+                <p id="totalGasto" class="text-4xl font-black text-amber-400">0.00€</p>
+              </div>
+              <div id="categories-summary" class="grid grid-cols-2 gap-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. Estructura HTML: Sitúa esto justo antes del <section id="itinerario"> -->
+    <section id="estadisticas-ruta" class="py-8 max-w-6xl mx-auto px-6">
+      <div id="ruta" class="section-card p-8">
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+          <h3 class="text-lg font-black text-slate-800 uppercase italic flex items-center gap-2">
+            <span>🚗</span> Análisis de Kilometraje por Etapa
+          </h3>
+          <p class="text-xs text-slate-500 mb-3">Nuevos: Lindau/Meersburg (Felchen), Triberg (Schwarzwälder Schinken), Füssen (Zwetschgendatschi)</p>
+          <div class="bg-amber-50 px-4 py-2 rounded-2xl border border-amber-100">
+            <p class="text-[10px] font-bold text-amber-800 uppercase tracking-widest">
+              Total Ruta: <span id="totalKm" class="text-lg font-black ml-1">0</span> km
+            </p>
+          </div>
+        </div>
+
+        <!-- Contenedor del Gráfico -->
+        <div class="h-[300px] w-full">
+          <canvas id="kmChart"></canvas>
+        </div>
+
+        <p
+          class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-6 text-center italic">
+          * Los datos se actualizan automáticamente según el campo 'km' de cada día en el
+          itinerario.
+        </p>
+      </div>
+    </section>
+
+    <!-- Itinerario -->
+    <section id="itinerario" class="py-16 bg-slate-200/50 border-y border-slate-300">
+      <div class="max-w-5xl mx-auto px-6 text-center mb-12">
+        <h2
+          class="text-4xl font-black text-slate-900 uppercase tracking-tighter italic underline decoration-amber-400 decoration-4 underline-offset-8">
+          Itinerario Detallado
+        </h2>
+      </div>
+      <div id="itinerary-list" class="max-w-4xl mx-auto space-y-6 px-6"></div>
+    </section>
+
+    <!-- Sección de Información / Notas -->
+    <section id="informacion" class="py-12 max-w-6xl mx-auto px-6">
+      <div class="text-center mb-8">
+        <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tighter italic underline decoration-amber-400 decoration-4 underline-offset-8">
+          Información
+        </h2>
+      </div>
+      <div class="section-card p-8">
+        <div class="mb-6">
+          <h3 class="font-bold text-slate-800 mb-2">🛝 Comparativa de toboganes alpinos</h3>
+          <p class="text-xs text-slate-500 mb-3">Nuevos: Lindau/Meersburg (Felchen), Triberg (Schwarzwälder Schinken), Füssen (Zwetschgendatschi)</p>
+          <a href="https://gemini.google.com/app/cee8cd9ef14543fb" target="_blank" class="text-amber-600 hover:text-amber-700 underline">Ver comparativa</a>
+        </div>
+        <hr class="border-slate-300 mb-6">
+        <div class="mb-6">
+          <h3 class="font-bold text-slate-800 mb-2">🎢 Precios parques (4 adultos + 2 niños 6 y 10 años)</h3>
+          <p class="text-xs text-slate-500 mb-3">Nuevos: Lindau/Meersburg (Felchen), Triberg (Schwarzwälder Schinken), Füssen (Zwetschgendatschi)</p>
+          <div class="text-slate-600 text-sm space-y-2">
+            <p><strong>Europa-Park 2 días:</strong> ~764€ (adultos 135€×4 + niños 112€×2)</p>
+            <p><strong>Rulantica 1 día:</strong> ~266€ (adultos 45€×4 + niños 43€×2)</p>
+            <p><strong>Parking 3 días:</strong> 30€ (10€/día)</p>
+            <p class="font-bold text-amber-600 text-base mt-3">TOTAL ESTIMADO: ~1.060€</p>
+            <p class="text-xs text-slate-500 mt-2">⚠️ Comprar ONLINE (taquilla +10€/persona). GetYourGuide en español mismo precio.</p>
+          </div>
+        </div>
+        <hr class="border-slate-300 mb-6">
+
+        <textarea
+          id="notas-textarea"
+          class="w-full h-64 p-4 border border-slate-300 rounded-xl text-slate-800 resize-y focus:outline-none focus:ring-2 focus:ring-amber-400"
+          placeholder="Escribe tus notas aquí..."></textarea>
+        <div class="flex justify-end mt-4">
+          <button
+            onclick="guardarNotas()"
+            class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold py-2 px-6 rounded-full transition-colors">
+            Guardar notas
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Modal de Actividad -->
+
+    <!-- Sección de Gastronomía -->
+    <section id="gastronomia" class="py-12 bg-amber-50/50 border-y border-amber-200">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-8">
+          <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tighter italic underline decoration-amber-400 decoration-4 underline-offset-8">
+            🍽️ Gastronomía
+          </h2>
+          <p class="text-slate-600 mt-4">Platos típicos de Baviera y Selva Negra - ¡y dónde probarlos!</p>
+        </div>
+
+        <!-- Filtros -->
+        <div class="flex flex-wrap justify-center gap-2 mb-8">
+          <button onclick="filterPlatos('all', event)" class="gastro-filter active px-4 py-2 rounded-full bg-amber-400 text-slate-900 font-bold text-sm">Todos</button>
+          <button onclick="filterPlatos('salchichas', event)" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">🌭 Salchichas</button>
+          <button onclick="filterPlatos('principales', event)" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">🍲 Principales</button>
+          <button onclick="filterPlatos('dulces', event)" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">🍰 Dulces</button>
+          <button onclick="filterPlatos('imprescindibles', event)" class="gastro-filter px-4 py-2 rounded-full bg-white text-slate-600 font-medium text-sm border">⭐ Imprescindibles</button>
+        </div>
+
+        <!-- Grid de platos -->
+        <div id="platos-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+          <!-- IMPRESCINDIBLES -->
+          <div class="plato-card imprescindibles dulces" data-cat="imprescindibles dulces">
+            <img src="img/platos/schmalznudel.jpeg" alt="Schmalznudel" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">⭐ Schmalznudel</h4>
+              <p class="text-xs text-slate-600 mt-1">Donut bávaro. Pedir "frisch aus dem Fett".</p>
+              <a href="https://www.google.com/maps/search/Cafe+Frischhut+München+Prälat-Zistl-Straße" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Café Frischhut, Múnich
+              </a>
+            </div>
+          </div>
+
           <div class="plato-card imprescindibles salchichas" data-cat="imprescindibles salchichas">
             <img src="img/platos/nurnbergerBratwurst.jpeg" alt="Nürnberger Bratwurst" class="w-full h-32 object-cover">
             <div class="p-3">
@@ -182,6 +390,29 @@
             </div>
           </div>
 
+          <div class="plato-card imprescindibles dulces" data-cat="imprescindibles dulces">
+            <img src="img/platos/schwarzwalderkirschtorte.jpeg" alt="Schwarzwälder Kirschtorte" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">⭐ Tarta Selva Negra</h4>
+              <p class="text-xs text-slate-600 mt-1">Chocolate, cerezas y nata. ¡La auténtica!</p>
+              <a href="https://www.google.com/maps/search/Gasthaus+Bischenberg+Sasbachwalden" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Gasthaus Bischenberg, Sasbachwalden
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card imprescindibles dulces" data-cat="imprescindibles dulces">
+            <img src="img/platos/schneeballen.jpeg" alt="Schneeballen" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">⭐ Schneeballen</h4>
+              <p class="text-xs text-slate-600 mt-1">Bolas de nieve. Masa frita con azúcar o chocolate.</p>
+              <a href="https://www.google.com/maps/search/Diller+Schneeballenträume+Rothenburg" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Diller, Rothenburg
+              </a>
+            </div>
+          </div>
+
+          <!-- SALCHICHAS -->
           <div class="plato-card salchichas" data-cat="salchichas">
             <img src="img/platos/weisswurst.jpeg" alt="Weißwurst" class="w-full h-32 object-cover">
             <div class="p-3">
@@ -223,17 +454,6 @@
           </div>
 
           <!-- PRINCIPALES -->
-          <div class="plato-card salchichas" data-cat="salchichas">
-            <img src="img/platos/wurstsalat.jpeg" alt="Wurstsalat" class="w-full h-32 object-cover">
-            <div class="p-3">
-              <h4 class="font-bold text-slate-800 text-sm">Wurstsalat</h4>
-              <p class="text-xs text-slate-600 mt-1">Ensalada fría de salchichas en vinagreta. Refrescante en verano.</p>
-              <p class="mt-2 text-xs text-slate-500">📍 Cualquier Biergarten</p>
-            </div>
-          </div>
-
-
-          <!-- 🍲 PRINCIPALES -->
           <div class="plato-card principales" data-cat="principales">
             <img src="img/platos/maultaschen.jpeg" alt="Maultaschen" class="w-full h-32 object-cover">
             <div class="p-3">
@@ -299,6 +519,36 @@
           </div>
 
           <!-- DULCES -->
+          <div class="plato-card dulces" data-cat="dulces">
+            <img src="img/platos/lebkuchen.jpeg" alt="Lebkuchen" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Lebkuchen</h4>
+              <p class="text-xs text-slate-600 mt-1">Galleta especiada de Núremberg.</p>
+              <a href="https://www.google.com/maps/search/Lebkuchen+Schmidt+Nürnberg" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
+                📍 Lebkuchen Schmidt, Núremberg
+              </a>
+            </div>
+          </div>
+
+          <div class="plato-card dulces" data-cat="dulces">
+            <img src="img/platos/apfelstrudel.jpeg" alt="Apfelstrudel" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Apfelstrudel</h4>
+              <p class="text-xs text-slate-600 mt-1">Strudel de manzana con canela.</p>
+              <p class="mt-2 text-xs text-slate-500">📍 Cualquier Café tradicional</p>
+            </div>
+          </div>
+
+          <div class="plato-card dulces" data-cat="dulces">
+            <img src="img/platos/kaiserschmarrn.jpeg" alt="Kaiserschmarrn" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Kaiserschmarrn</h4>
+              <p class="text-xs text-slate-600 mt-1">Tortita del Emperador troceada.</p>
+              <p class="mt-2 text-xs text-slate-500">📍 Refugios de montaña alpinos</p>
+            </div>
+          </div>
+
+          <!-- OTROS -->
           <div class="plato-card principales" data-cat="principales">
             <img src="img/platos/obatzda.jpeg" alt="Obatzda" class="w-full h-32 object-cover">
             <div class="p-3">
@@ -330,6 +580,15 @@
 
 
           <!-- NUEVOS PLATOS -->
+          <div class="plato-card salchichas" data-cat="salchichas">
+            <img src="img/platos/wurstsalat.jpeg" alt="Wurstsalat" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Wurstsalat</h4>
+              <p class="text-xs text-slate-600 mt-1">Ensalada fría de salchichas en vinagreta. Refrescante en verano.</p>
+              <p class="mt-2 text-xs text-slate-500">📍 Cualquier Biergarten</p>
+            </div>
+          </div>
+
           <div class="plato-card principales imprescindibles" data-cat="principales imprescindibles">
             <img src="img/platos/schweinshaxe.jpeg" alt="Schweinshaxe" class="w-full h-32 object-cover">
             <div class="p-3">
@@ -380,6 +639,21 @@
               <p class="mt-2 text-xs text-slate-500">📍 Restaurantes tradicionales - Friburgo</p>
             </div>
           </div>
+
+          <div class="plato-card dulces" data-cat="dulces">
+            <img src="img/platos/zwetschgendatschi.jpeg" alt="Zwetschgendatschi" class="w-full h-32 object-cover">
+            <div class="p-3">
+              <h4 class="font-bold text-slate-800 text-sm">Zwetschgendatschi</h4>
+              <p class="text-xs text-slate-600 mt-1">Tarta de ciruelas sobre masa fina. Típica de Suabia.</p>
+              <p class="mt-2 text-xs text-slate-500">📍 Cafeterías - Füssen/Nesselwang</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resumen por ciudad -->
+        <div class="mt-8 p-6 bg-white rounded-2xl shadow-sm border border-amber-200">
+          <h3 class="font-bold text-slate-800 mb-4">📍 Resumen - Imprescindibles por ciudad</h3>
+          <p class="text-xs text-slate-500 mb-3">Nuevos: Lindau/Meersburg (Felchen), Triberg (Schwarzwälder Schinken), Füssen (Zwetschgendatschi)</p>
 
           <div class="plato-card principales" data-cat="principales">
             <img src="img/platos/leberknodelsuppe.jpeg" alt="Leberknödelsuppe" class="w-full h-32 object-cover">
@@ -1012,88 +1286,3 @@ function openActivity(dayIdx, actIdx) {
     </script>
   </body>
 </html>
-
-          <!-- 🍰 DULCES -->
-          <div class="plato-card imprescindibles dulces" data-cat="imprescindibles dulces">
-            <img src="img/platos/schmalznudel.jpeg" alt="Schmalznudel" class="w-full h-32 object-cover">
-            <div class="p-3">
-              <h4 class="font-bold text-slate-800 text-sm">⭐ Schmalznudel</h4>
-              <p class="text-xs text-slate-600 mt-1">Donut bávaro. Pedir "frisch aus dem Fett".</p>
-              <a href="https://www.google.com/maps/search/Cafe+Frischhut+München+Prälat-Zistl-Straße" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
-                📍 Café Frischhut, Múnich
-              </a>
-            </div>
-          </div>
-
-          <div class="plato-card imprescindibles dulces" data-cat="imprescindibles dulces">
-            <img src="img/platos/schwarzwalderkirschtorte.jpeg" alt="Schwarzwälder Kirschtorte" class="w-full h-32 object-cover">
-            <div class="p-3">
-              <h4 class="font-bold text-slate-800 text-sm">⭐ Tarta Selva Negra</h4>
-              <p class="text-xs text-slate-600 mt-1">Chocolate, cerezas y nata. ¡La auténtica!</p>
-              <a href="https://www.google.com/maps/search/Gasthaus+Bischenberg+Sasbachwalden" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
-                📍 Gasthaus Bischenberg, Sasbachwalden
-              </a>
-            </div>
-          </div>
-
-          <div class="plato-card imprescindibles dulces" data-cat="imprescindibles dulces">
-            <img src="img/platos/schneeballen.jpeg" alt="Schneeballen" class="w-full h-32 object-cover">
-            <div class="p-3">
-              <h4 class="font-bold text-slate-800 text-sm">⭐ Schneeballen</h4>
-              <p class="text-xs text-slate-600 mt-1">Bolas de nieve. Masa frita con azúcar o chocolate.</p>
-              <a href="https://www.google.com/maps/search/Diller+Schneeballenträume+Rothenburg" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
-                📍 Diller, Rothenburg
-              </a>
-            </div>
-          </div>
-
-          <!-- SALCHICHAS -->
-          <div class="plato-card dulces" data-cat="dulces">
-            <img src="img/platos/lebkuchen.jpeg" alt="Lebkuchen" class="w-full h-32 object-cover">
-            <div class="p-3">
-              <h4 class="font-bold text-slate-800 text-sm">Lebkuchen</h4>
-              <p class="text-xs text-slate-600 mt-1">Galleta especiada de Núremberg.</p>
-              <a href="https://www.google.com/maps/search/Lebkuchen+Schmidt+Nürnberg" target="_blank" class="inline-flex items-center gap-1 mt-2 text-xs text-amber-600 hover:text-amber-700">
-                📍 Lebkuchen Schmidt, Núremberg
-              </a>
-            </div>
-          </div>
-
-          <div class="plato-card dulces" data-cat="dulces">
-            <img src="img/platos/apfelstrudel.jpeg" alt="Apfelstrudel" class="w-full h-32 object-cover">
-            <div class="p-3">
-              <h4 class="font-bold text-slate-800 text-sm">Apfelstrudel</h4>
-              <p class="text-xs text-slate-600 mt-1">Strudel de manzana con canela.</p>
-              <p class="mt-2 text-xs text-slate-500">📍 Cualquier Café tradicional</p>
-            </div>
-          </div>
-
-          <div class="plato-card dulces" data-cat="dulces">
-            <img src="img/platos/kaiserschmarrn.jpeg" alt="Kaiserschmarrn" class="w-full h-32 object-cover">
-            <div class="p-3">
-              <h4 class="font-bold text-slate-800 text-sm">Kaiserschmarrn</h4>
-              <p class="text-xs text-slate-600 mt-1">Tortita del Emperador troceada.</p>
-              <p class="mt-2 text-xs text-slate-500">📍 Refugios de montaña alpinos</p>
-            </div>
-          </div>
-
-          <!-- OTROS -->
-          <div class="plato-card dulces" data-cat="dulces">
-            <img src="img/platos/zwetschgendatschi.jpeg" alt="Zwetschgendatschi" class="w-full h-32 object-cover">
-            <div class="p-3">
-              <h4 class="font-bold text-slate-800 text-sm">Zwetschgendatschi</h4>
-              <p class="text-xs text-slate-600 mt-1">Tarta de ciruelas sobre masa fina. Típica de Suabia.</p>
-              <p class="mt-2 text-xs text-slate-500">📍 Cafeterías - Füssen/Nesselwang</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Resumen por ciudad -->
-        <div class="mt-8 p-6 bg-white rounded-2xl shadow-sm border border-amber-200">
-          <h3 class="font-bold text-slate-800 mb-4">📍 Resumen - Imprescindibles por ciudad</h3>
-          <p class="text-xs text-slate-500 mb-3">Nuevos: Lindau/Meersburg (Felchen), Triberg (Schwarzwälder Schinken), Füssen (Zwetschgendatschi)</p>
-
-
-        </div>
-
-        
