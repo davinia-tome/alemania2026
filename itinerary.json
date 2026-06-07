@@ -130,10 +130,11 @@
         "name": "Tobogán Hasenhorn",
         "category": "Aventura",
         "img": "https://media-cdn.tripadvisor.com/media/photo-s/04/06/44/15/hasenhorn-coaster-todtnau.jpg",
-        "desc": "Tobogán alpino de 2.9 km de descenso.",
-        "schedule": "15:00 - Subida en telesilla.\n16:00 - Descenso.",
-        "history": "Diversión asegurada para toda la familia. Uno de los más largos de Alemania.",
-        "mapLink": "https://www.google.com/maps/search/?api=1&query=Hasenhorn+Coaster+Todtnau"
+        "desc": "Rodelbahn (tobogán alpino sobre raíles) de 2.9km. Bajas en trineo individual controlando velocidad con palanca. ¡Velocidades hasta 40km/h! Apto desde 4 años (con adulto) o solos desde 8 años y 1.40m.",
+        "schedule": "CÓMO FUNCIONA:\n1. Coges telesilla hasta arriba (~10 min, 2 personas/silla)\n2. Te dan trineo de plástico sobre raíles\n3. Palanca adelante = acelerar / Palanca atrás = frenar\n4. Descenso 2.9km (~7 min) controlando TÚ la velocidad\n5. Mantener 25m distancia con trineo delante\n\n⚠️ NO es automático. Si no frenas, puedes ir MUY rápido. Si frenas mucho, el de atrás te alcanza.\n\nEDADES:\n- Desde 4 años: con adulto en mismo trineo\n- Desde 8 años + 1.40m: solos\n\nHORARIO: 10:00-16:30 (puede cerrar por tormenta/viento/hielo)\n\nEXTRAS EN LA ZONA:\n- Torre mirador Hasenhorn (20 min andando desde arriba) - vistas Alpes\n- Magic Trail: sendero infantil 4.4km con estaciones juego, figuras talladas, cueva murciélago, zona barbacoa",
+        "history": "El Hasenhorn Rodelbahn está en Todtnau, Selva Negra, 30km al sur de Friburgo. Es uno de los toboganes alpinos más largos de Alemania.",
+        "mapLink": "https://www.google.com/maps/search/?api=1&query=Hasenhorn+Coaster+Todtnau",
+        "recommendation": "PRECIO: ~10€ telesilla+tobogán (niños ~8.50€). Fotos en la bajada: 3€\n\nCONSEJOS:\n- Ir TEMPRANO (en vacaciones hay colas)\n- Funciona con lluvia pero puede cerrar por tormenta\n- Abajo hay cafetería con Bratwurst/Currywurst\n- MUY DIVERTIDO para toda la familia - saldréis con sonrisa de oreja a oreja"
       },
       {
         "name": "Cascadas de Todtnau",
@@ -141,7 +142,9 @@
         "img": "https://mein.toubiz.de/api/v1/media/5f1d2da8-e3ea-4ce8-a938-e81dabc8408c/view?fm=image/jpeg&w=420",
         "desc": "Una de las caídas de agua más altas de Alemania (97m).",
         "history": "Caminata corta y fácil de unos 15 minutos desde el parking.",
-        "mapLink": "https://www.google.com/maps/search/?api=1&query=Todtnau+Waterfall"
+        "mapLink": "https://www.google.com/maps/search/?api=1&query=Todtnau+Waterfall",
+        "schedule": "Cascada de 97m, una de las más altas de Alemania. Sendero señalizado desde aparcamiento (~30 min ida). Plataformas mirador en varios niveles.",
+        "recommendation": "Parking de pago junto a la cascada. Combinar con tobogán Hasenhorn (están cerca). Llevar calzado cómodo."
       },
       {
         "name": "Schönwald",
@@ -149,7 +152,9 @@
         "img": "https://vcdn.bergfex.at/images/resized/4f/a50b69ac13f89b4f_ef7403d4c63276dc@2x.jpg",
         "desc": "Pueblo tranquilo en la Selva Negra, cuna del reloj de cuco (aquí nació Franz Anton Ketterer).",
         "history": "Parque infantil: https://maps.app.goo.gl/onsnC9WdafwDHnBm8",
-        "mapLink": "https://www.google.com/maps/search/?api=1&query=Ludwig-Uhland-Straße+17,+78141+Schönwald"
+        "mapLink": "https://www.google.com/maps/search/?api=1&query=Ludwig-Uhland-Straße+17,+78141+Schönwald",
+        "schedule": "Pueblo donde se inventó el reloj de cuco (1737). Paseo tranquilo por calles típicas Selva Negra.",
+        "recommendation": "Parada rápida de camino. Tiendas de relojes de cuco artesanales."
       }
     ]
   },
@@ -197,8 +202,10 @@
         "category": "Cultura",
         "img": "https://www.shutterstock.com/editorial/image-editorial/O4T7IdwfN7j2gay1MjE2Ng==/exterior-view-world-biggest-cuckoo-clock-eble-550nw-9142101n.jpg",
         "desc": "El reloj de cuco más grande del mundo (se puede entrar dentro).",
-        "history": "Ubicado en Eble Uhren-Park. Es impresionante ver la maquinaria desde el interior.",
-        "mapLink": "https://www.google.com/maps/search/?api=1&query=Eble+Uhren+Park+Giant+Cuckoo+Clock"
+        "history": "Construido en 1980 a escala 60:1. El cuco mide 4.5m y pesa 150kg.",
+        "mapLink": "https://www.google.com/maps/search/?api=1&query=Eble+Uhren+Park+Giant+Cuckoo+Clock",
+        "schedule": "Reloj de cuco más grande del mundo. El cuco sale cada hora en punto. Se puede entrar dentro y ver mecanismo.",
+        "recommendation": "Gratuito ver el cuco desde fuera. Entrada al interior ~2€. Hay tienda de souvenirs. Parada rápida (30 min)."
       },
       {
         "name": "Compra Logística",
@@ -239,7 +246,9 @@
         "category": "Naturaleza",
         "img": "https://www.schwarzwaldportal.com/wp-content/uploads/2021/11/image_editor_output_image1424577051-1636021146774-scaled.jpg",
         "desc": "Impresionante carretera que serpentea entre paredes de roca. Hito: El Hirschsprung (Salto del Ciervo), con su estatua de bronce.",
-        "schedule": "10:00 - Salida hacia Höllental\n10:45 - Parada en Hirschsprung"
+        "schedule": "10:00 - Salida hacia Höllental\n10:45 - Parada en Hirschsprung",
+        "history": "Valle estrecho y escarpado entre Friburgo y Titisee. Nombre 'Valle del Infierno' por lo peligroso que era cruzarlo antiguamente. La carretera actual sigue el trazado de la antigua vía romana.",
+        "recommendation": "Parar en el mirador del ciervo de bronce (Hirschsprung). Leyenda: un ciervo saltó el desfiladero huyendo de cazadores. Buenas fotos. Ravenna Gorge (garganta) cercana con puente viaducto espectacular."
       },
       {
         "name": "Casco Antiguo de Friburgo",
@@ -402,7 +411,10 @@
         "name": "Sasbachwalden",
         "category": "Pueblo",
         "img": "https://www.schwarzwald-tourismus.info/Media/Attraktionen/Sasbachwalden",
-        "desc": "Famoso por sus flores y sus 'tiendas de vino' de autoservicio en el campo."
+        "desc": "Elegido pueblo más bonito de Alemania. Casas entramado con flores en cada ventana. Viñedos, castaños, fuentes de SCHNAPPS por las rutas.",
+        "schedule": "QUÉ VER:\n1. Pasear por calles con casas entramado y flores\n2. FUENTES DE SCHNAPPS - Más de 10 fuentes con licores locales por el pueblo y rutas. Vasos disponibles, dejas propina en caja\n3. Cascadas Gaishöll - 1km subida por garganta con puentes madera. Arriba: restaurante con tarta Selva Negra\n4. Ruta Alde Gott (10km, 3.5h) - Viñedos, bosques, miradores. Pasa por bodegas.\n\nSCHNAPPS: Aguardiente de frutas (cereza, ciruela, pera). Sin azúcar = quema al bajar. El de cereza (Kirsch) es el típico.",
+        "history": "Pueblo de flores y vino en ladera oeste Selva Negra, entre 200-800m altitud. Tradición vinícola y de destilación. Cualquier propiedad con frutales puede pedir licencia para destilar schnapps.",
+        "recommendation": "IMPRESCINDIBLE: Probar tarta Selva Negra (Schwarzwälder Kirschtorte) auténtica en restaurante Bischenberg (arriba cascadas).\n\nKONUS Card: Si dormís en Selva Negra, pedir en hotel. Da transporte público gratis + entrada piscina gratis.\n\n30 min de Gengenbach, 45 min de Europa-Park. Ideal combinar."
       },
       {
         "name": "Cabaña WANDERHÜTTE SATTELEI",
@@ -451,8 +463,10 @@
         "name": "Museo Mercedes-Benz",
         "category": "Motor",
         "img": "https://www.mercedes-benz.com/assets/art-and-culture/mercedes-benz-museum/museum/01-mercedes-benz-museum-header-5120x2880.jpeg",
-        "desc": "Imprescindible para los amantes del motor.",
-        "schedule": "09:00 - Visita Museo"
+        "desc": "130 años de historia del automóvil. 160+ vehículos y 1500 objetos en 16.500m². Edificio espectacular con rampas en espiral. Audioguía y actividades especiales para niños.",
+        "schedule": "VISITA:\n- Empiezas en planta 9 y bajas en espiral\n- 2 recorridos posibles: historia cronológica o por temas\n- Duración: 2-3 horas mínimo\n- Audioguía incluida (también versión niños)\n\nDESTACADOS:\n- Primer automóvil del mundo (1886)\n- Coches de carreras históricos\n- Flechas de Plata\n- Coches de famosos\n- Prototipos futuristas\n\nPARA NIÑOS: Audioguía especial, cuaderno de actividades, visitas guiadas infantiles.",
+        "history": "Daimler es el fabricante de coches más antiguo del mundo. Stuttgart = cuna del automóvil (también Porsche tiene museo aquí).",
+        "recommendation": "PRECIO: desde 8€ (niños reducido, <14 gratis con adulto según día)\nHORARIO: Mar-Dom 9:00-18:00. CERRADO LUNES.\nPARKING: Gratuito en el museo.\n\nCOMBO: Si os gustan los coches, también está el Museo Porsche en Stuttgart.\n\nStuttCard: entrada gratis si tenéis esta tarjeta turística."
       },
       {
         "name": "Rothenburg ob der Tauber",
@@ -490,8 +504,9 @@
         "img": "https://fotografiandoviajes.com/wp-content/uploads/2026/08/Vista-Rothenburg-ob-der-Tauber-Ruta-Romantica-Alemania.jpeg",
         "desc": "Recorrido por lo alto de la muralla. Visita a la tienda de Navidad Käthe Wohlfahrt. Wochenmarkt (mercado semanal) en la plaza.",
         "schedule": "09:30 - Inicio ruta\n13:00 - Salchichas en el mercado",
-        "recommendation": "Drei im Weckla (3 bratwurst en panecillo).",
-        "mapLink": "https://www.google.com/maps/d/u/0/edit?mid=1ertFbayKpTmSHvc-qAnbb2T_1-auJUo&usp=sharing"
+        "recommendation": "Subir gratis y pasear por el adarve (pasillo superior). Vistas del casco antiguo y alrededores. Mejor al atardecer. Acceso por varias torres.",
+        "mapLink": "https://www.google.com/maps/d/u/0/edit?mid=1ertFbayKpTmSHvc-qAnbb2T_1-auJUo&usp=sharing",
+        "history": "Muralla medieval del s.XIV casi completa (2.5km). Una de las mejor conservadas de Europa. Tras WWII, donantes de todo el mundo financiaron su reconstrucción."
       }
     ]
   },
@@ -575,7 +590,9 @@
         "img": "https://www.bratwursthaeusle.de/wp-content/uploads/2019/09/bratwursthaeusle-nuernberg-aussen.jpg",
         "desc": "Las salchichas más famosas de Núremberg. Servidas en platos de peltre con forma de corazón.",
         "recommendation": "Pedir salchichas pequeñas (6, 8, 10 o 12 uds) con Kartoffelsalat (ensalada de patata) o chucrut. Comprar Nürnberger Lebkuchen para el coche.",
-        "restoLink": "https://share.google/iR48xPX3LKxgNcqLS"
+        "restoLink": "https://share.google/iR48xPX3LKxgNcqLS",
+        "schedule": "Restaurante histórico junto al río Pegnitz. Salchichas Nürnberger pequeñas (6-8cm) a la parrilla de leña de haya. Platos de peltre en forma de corazón.",
+        "history": "Uno de los restaurantes más antiguos de Núremberg. Receta de salchichas Nürnberger protegida desde 1313."
       }
     ]
   },
@@ -663,9 +680,10 @@
         "category": "Tradición",
         "img": "https://funkygermany.com/wp-content/uploads/2020/11/eating-weisswurst-bavarian-sausage-1024x683.jpg",
         "desc": "Salchicha blanca antes de las 12.",
-        "recommendation": "Weisswurst con mostaza dulce.",
+        "recommendation": "Pedir 2 Weißwurst por persona. NO comer la piel. Abrir con cuchillo y sacar la carne. Mojar en mostaza dulce (Süßer Senf). Beber con Weißbier (cerveza de trigo).",
         "restoLink": "#",
-        "schedule": "09:00 - Desayuno\n11:30 - Salida al aeropuerto"
+        "schedule": "09:00 - Desayuno\n11:30 - Salida al aeropuerto",
+        "history": "Tradición bávara: Weißwurst (salchicha blanca) debe comerse ANTES de las 12h (antiguamente no había neveras). Se acompaña de Brezel y mostaza dulce."
       }
     ]
   }
